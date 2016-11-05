@@ -19,7 +19,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Sigma Delta Chi Website</a>
                         <li class="divider"></li>
@@ -37,7 +37,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credentials <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Credentials <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Resume</a>
                     </ul>
