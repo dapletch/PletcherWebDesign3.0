@@ -8,7 +8,7 @@
             <li><a href="#">The Craft</a></li>
             <li><a href="#">Informational Session</a></li>
         </ul>
-        <p class="navbar-text">Copyright ©
+        <p class="navbar-text">Copyright &copy;
             <script type="text/javascript">
                 var d = new Date();
                 document.write(d.getFullYear())

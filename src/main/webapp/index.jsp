@@ -4,7 +4,6 @@
 </head>
 
 <body>
-<div class="col-lg-9">
     <div class="parallax">
         <div class="container-parallax">
             <div class="text-center">
@@ -88,6 +87,5 @@
         keep in touch with. Web technologies are constantly changing which requires an intricate system analysis
         and design process to ensure a website's success in a highly competitive environment. Pletcher Web
         Design is here to help you by <b>converting your dreams to code!</b></p>
-</div>
 </body>
 </html>

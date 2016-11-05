@@ -22,7 +22,9 @@
     <%-- End of Navigation for Side Navigation Bar --%>
 
     <%-- Start of Body Container --%>
-    <decorator:body/>
+    <div class="col-lg-9">
+        <decorator:body/>
+    </div>
     <%-- End of Body Container --%>
 </div>
 <%@ include file="../includes/footer.jsp" %>
