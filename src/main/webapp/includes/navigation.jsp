@@ -1,35 +1,12 @@
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
-<decorator:usePage id="thePage" />
-
-<% String selection = thePage.getProperty("meta.selection"); %>
-
-<p>
-	<table border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td>
-			<% if(selection != null && "index".equals(selection)){ %>
-				<a href="index.jsp" class="selected">Main</a>
-			<% } else { %>
-				<a href="index.jsp">Main</a>
-			<% } %>
-		</td>
-
-	</tr><tr>
-		<td>
-			<% if(selection != null && "page1".equals(selection)){ %>
-				<a href="index.jsp" class="selected">Page 1</a>
-			<% } else { %>
-				<a href="page1.jsp">Page 1</a>
-			<% } %>
-		</td>
-	</tr><tr>
-		<td>
-			<% if(selection != null && "page2".equals(selection)){ %>
-				<a href="page2.jsp" class="selected">Page 2</a>
-			<% } else { %>
-				<a href="page2.jsp">Page 2</a>
-			<% } %>
-		</td>
-	</tr>
-	</table>
-</p>
+<h2>Past Projects</h2>
+    <p>Still not convinced Pletcher Web Design is right for you.
+        Check out some of my past projects to see if my skill set fits your needs:</p>
+    <ul class="nav nav-pills nav-stacked list-group">
+        <li class="list-group-item"><a href="#">Sigma Delta Chi Website</a></li>
+        <li class="list-group-item"><a href="#">Vermont Tech Jobs</a></li>
+        <li class="list-group-item"><a href="#">Skin &amp; Tonic WordPress Site</a></li>
+        <li class="list-group-item"><a href="#">Skin &amp; Tonic Mobile App</a></li>
+        <li class="list-group-item"><a href="#">C# Point of Sales Receipt</a></li>
+        <li class="list-group-item"><a href="#">Java Log Parsing Analytics App</a></li>
+        <li class="list-group-item"><a href="#">Java CSV Parsing Web Report App</a></li>
+    </ul>

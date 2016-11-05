@@ -1,11 +1,93 @@
 <html>
 <head>
-	<title>Hello world!</title>
-	<meta name="selection" content="index">
+    <title>Pletcher Web Design</title>
 </head>
 
 <body>
-	<h2>index.jsp</h2>
-	<p>Welcome to the SiteMesh Demonstration.</p>
+<div class="col-lg-9">
+    <div class="parallax">
+        <div class="container-parallax">
+            <div class="text-center">
+                <a href="#header1" class="btn-parallax" role="button">Get Your Website Started Today</a>
+            </div>
+        </div>
+    </div>
+    <h1 id="header1">Welcome to Pletcher Web Design</h1>
+    <!-- Start of Carousel -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="images/slide-show/skin_and_tonic_1_lg.png" alt="Skin & Tonic">
+                <div class="carousel-caption">
+                    <h3>Skin &amp; Tonic</h3>
+                    <p>A beautifully designed WordPress site I created my tenure at Castleton University.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/slide-show/sigma_delta_chi_1_lg.png" alt="Sigma Delta Chi 1">
+                <div class="carousel-caption">
+                    <h3>Sigma Delta Chi Home Page</h3>
+                    <p>The home page for Sigma Delta Chi's website. I created this because the
+                        fraternity needed to really get it's space on the web</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/slide-show/sigma_delta_chi_2_lg.png" alt="Sigma Delta Chi 2">
+                <div class="carousel-caption">
+                    <h3>Sigma Delta Donation Page</h3>
+                    <p>I worked in conjunction with our treasurer at the time to get a PayPal account set up.
+                        Once the account was set up and the link was added to the page the money from donations
+                        started pouring in.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- End of Carousel -->
+    <br>
+    <p>Pletcher Web Design is owned and operated by the Vermont based Designer, Seth Pletcher. Pletcher Web
+        Design specializes in visual branding, web development, and graphic design. A design involves a great
+        deal of system analysis, for when you think about it, almost everything can be thought about as a
+        system. Pletcher Web Design specializes in providing a great architecture and functionality while
+        helping you, the client, to achieve your goals.</p>
+    <p>I will work with you to design a website that advances the goals of your business and or organization,
+        while helping you leverage your knowledge of your business, your customers, and your marketing
+        strategies. I am truly passionate about providing technological and marketing support that exposes
+        regional businesses to a domestic and international customer base.</p>
+    <h3>What Pletcher Web Design Specializes In:</h3>
+    <ul>
+        <li>Website planning and organization</li>
+        <li>Web design and coding i.e. creating wire-frames that are easy to follow and understand</li>
+        <li>Content management systems: Joomla! And WordPress</li>
+        <li>Hosting and domain name registration</li>
+        <li>Website maintenance and training in the form of detailed documentation, as a reference, for new
+            users
+        </li>
+    </ul>
+    <h3>Why Pletcher Web Design?</h3>
+    <p>The world wide web is a revolutionary tool with great potential that some people have not been able to
+        keep in touch with. Web technologies are constantly changing which requires an intricate system analysis
+        and design process to ensure a website's success in a highly competitive environment. Pletcher Web
+        Design is here to help you by <b>converting your dreams to code!</b></p>
+</div>
 </body>
 </html>
