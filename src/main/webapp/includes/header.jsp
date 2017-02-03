@@ -13,7 +13,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="../signup/signup.jsp">Sign Up</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Submit a Review</a></li>
                     </ul>
