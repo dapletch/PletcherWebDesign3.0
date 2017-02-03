@@ -7813,7 +7813,7 @@ button.close {
 }
 
 .carousel-caption {
-    position: absolute;
+    position: relative;
     right: 15%;
     bottom: 20px;
     left: 15%;
@@ -7831,7 +7831,7 @@ button.close {
     text-shadow: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 320px) {
     .carousel-control .glyphicon-chevron-left,
     .carousel-control .glyphicon-chevron-right,
     .carousel-control .icon-prev,
@@ -7857,6 +7857,10 @@ button.close {
         left: 20%;
         opacity: 0.85;
         padding-bottom: 30px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
     }
 
     .carousel-indicators {
@@ -8242,9 +8246,9 @@ b {
 
 .btn-parallax {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 6px 18px;
     margin-bottom: 0;
-    font-size: 35px;
+    font-size: 1.875em;
     font-weight: normal;
     line-height: 1.42857143;
     text-align: center;

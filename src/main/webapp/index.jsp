@@ -7,7 +7,7 @@
     <div class="parallax">
         <div class="container-parallax">
             <div class="text-center">
-                <a href="#header1" class="btn-parallax" role="button">Get Your Website Started Today</a>
+                <a href="#header1" class="btn-parallax" role="button">Get Started<br>Today</a>
             </div>
         </div>
     </div>
@@ -25,29 +25,14 @@
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="images/slide-show/skin_and_tonic_1_lg.png" alt="Skin & Tonic">
-                <div class="carousel-caption">
-                    <h3>Skin &amp; Tonic</h3>
-                    <p>A beautifully designed WordPress site I created my tenure at Castleton University.</p>
-                </div>
             </div>
 
             <div class="item">
                 <img src="images/slide-show/sigma_delta_chi_1_lg.png" alt="Sigma Delta Chi 1">
-                <div class="carousel-caption">
-                    <h3>Sigma Delta Chi Home Page</h3>
-                    <p>The home page for Sigma Delta Chi's website. I created this because the
-                        fraternity needed to really get it's space on the web</p>
-                </div>
             </div>
 
             <div class="item">
                 <img src="images/slide-show/sigma_delta_chi_2_lg.png" alt="Sigma Delta Chi 2">
-                <div class="carousel-caption">
-                    <h3>Sigma Delta Donation Page</h3>
-                    <p>I worked in conjunction with our treasurer at the time to get a PayPal account set up.
-                        Once the account was set up and the link was added to the page the money from donations
-                        started pouring in.</p>
-                </div>
             </div>
         </div>
 
