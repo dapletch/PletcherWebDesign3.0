@@ -12,46 +12,49 @@
 </head>
 <body>
 <h1>Benefits of Having an Account</h1>
-<p>By signing up for an account you can keep track of your change requests on our website. Being a client means you have a lot of power in terms of the design and development of your website.
-    We do our best to make sure we are coding to fit your every one of specifications. This is also a great way to keep tabs on how your site is progressing as well.
-    Signing up gives you the power to submit tickets which help us keep tabs on incoming work, while keeping up with specified deadlines.</p>
+<p>By signing up for an account you can keep track of your change requests on our website. Being a client means you have
+    a lot of power in terms of the design and development of your website.
+    We do our best to make sure we are coding to fit your every one of specifications. This is also a great way to keep
+    tabs on how your site is progressing as well.
+    Signing up gives you the power to submit tickets which help us keep tabs on incoming work, while keeping up with
+    specified deadlines.</p>
 
 <p>All fields must be filled out, for the form to submit.</p>
 
 <form>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="firstName">First Name:</label>
         <input type="text" class="form-control" placeholder="First Name" id="firstName">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="lastName">Last Name:</label>
         <input type="text" class="form-control" placeholder="Last Name" id="lastName">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="email">Email:</label>
         <input type="email" class="form-control" placeholder="Email" id="email">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="username">Username:</label>
         <input type="text" class="form-control" placeholder="Username" id="username">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" placeholder="Password" id="pwd">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="verifyPwd">Verify Password:</label>
         <input type="password" class="form-control" placeholder="Verify Password" id="verifyPwd">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="streetAddress">Street Address:</label>
         <input type="text" class="form-control" placeholder="Street Address" id="streetAddress">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="city">City:</label>
         <input type="text" class="form-control" placeholder="City" id="city">
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="state">State:</label>
         <select class="form-control" id="state">
             <option value="-1">Please Select A State</option>
@@ -108,15 +111,17 @@
             <option value="WY">Wyoming</option>
         </select>
     </div>
-    <div class="form-group">
+    <div class="form-group col-xs-6">
         <label for="zipCode">Zip Code:</label>
         <input type="text" class="form-control" placeholder="Zip Code" id="zipCode">
     </div>
-    <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
+    <div class="form-group col-xs-6">
+        <label for="phoneNumber">Phone Number:</label>
         <input type="text" class="form-control" placeholder="Phone Number" id="phoneNumber">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="form-group">
+        <button type="submit" class="btn-submit btn-default-submit">Submit</button>
+    </div>
 </form>
 
 </body>
