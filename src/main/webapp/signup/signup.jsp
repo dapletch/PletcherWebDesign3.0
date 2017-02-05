@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
@@ -21,42 +22,42 @@
 
 <p>All fields must be filled out, for the form to submit.</p>
 
-<form>
+<form method="post" action="users.action">
     <div class="form-group col-xs-6">
         <label for="firstName">First Name:</label>
-        <input type="text" class="form-control" placeholder="First Name" id="firstName">
+        <input type="text" class="form-control" placeholder="First Name" name="users.firstName" id="firstName">
     </div>
     <div class="form-group col-xs-6">
         <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+        <input type="text" class="form-control" placeholder="Last Name" name="users.lastName" id="lastName">
     </div>
     <div class="form-group col-xs-6">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" placeholder="Email" id="email">
+        <input type="email" class="form-control" placeholder="Email" name="users.email" id="email">
     </div>
     <div class="form-group col-xs-6">
         <label for="username">Username:</label>
-        <input type="text" class="form-control" placeholder="Username" id="username">
+        <input type="text" class="form-control" placeholder="Username" name="users.username" id="username">
     </div>
     <div class="form-group col-xs-6">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" placeholder="Password" id="pwd">
+        <input type="password" class="form-control" placeholder="Password" name="users.password" id="pwd">
     </div>
     <div class="form-group col-xs-6">
         <label for="verifyPwd">Verify Password:</label>
-        <input type="password" class="form-control" placeholder="Verify Password" id="verifyPwd">
+        <input type="password" class="form-control" placeholder="Verify Password" name="users.checkPassword" id="verifyPwd">
     </div>
     <div class="form-group col-xs-6">
         <label for="streetAddress">Street Address:</label>
-        <input type="text" class="form-control" placeholder="Street Address" id="streetAddress">
+        <input type="text" class="form-control" placeholder="Street Address" name="users.streetAddress" id="streetAddress">
     </div>
     <div class="form-group col-xs-6">
         <label for="city">City:</label>
-        <input type="text" class="form-control" placeholder="City" id="city">
+        <input type="text" class="form-control" placeholder="City" name="users.city" id="city">
     </div>
     <div class="form-group col-xs-6">
         <label for="state">State:</label>
-        <select class="form-control" id="state">
+        <select class="form-control" name="users.state" id="state">
             <option value="-1">Please Select A State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -113,14 +114,14 @@
     </div>
     <div class="form-group col-xs-6">
         <label for="zipCode">Zip Code:</label>
-        <input type="text" class="form-control" placeholder="Zip Code" id="zipCode">
+        <input type="text" class="form-control" placeholder="Zip Code" name="users.zipCode" id="zipCode">
     </div>
     <div class="form-group col-xs-6">
         <label for="phoneNumber">Phone Number:</label>
-        <input type="text" class="form-control" placeholder="Phone Number" id="phoneNumber">
+        <input type="text" class="form-control" placeholder="Phone Number" name="users.phoneNumber" id="phoneNumber">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn-submit btn-default-submit">Submit</button>
+        <button type="submit" value="Submit" class="btn-submit btn-default-submit">Submit</button>
     </div>
 </form>
 
