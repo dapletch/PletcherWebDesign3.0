@@ -25,13 +25,13 @@ public class SignUp extends ActionSupport {
             // Check if passwords entered match
             if (!users.getPassword().equals(users.getCheckPassword())) {
                 setErrorMessage("<p>The passwords you entered do not match. " +
-                        "Please <a style=\"color:#008000;text-decoration:none;\" href=\"../signup/signup.jsp\">try again</a>.</p>");
+                        "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
                 return ERROR;
             }
             // Check to see if the user already exists in the database
             if (signUpDao.isUserAlreadyInDb(users)) {
                 setErrorMessage("<p>The username has already been taken. " +
-                        "Please <a style=\"color:#008000;text-decoration:none;\" href=\"../signup/signup.jsp\">try again</a>.</p>" +
+                        "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>" +
                         userAlreadyInDbError());
                 return ERROR;
             }
@@ -40,7 +40,7 @@ public class SignUp extends ActionSupport {
         } catch (DataAccessException e) {
             System.out.println("There was an issue with submitting the record: \n" + e);
             setErrorMessage("<p>The credentials you submitted were unable to be processed. " +
-                    "Please review the credentials and <a style=\"color:#008000;text-decoration:none;\" href=\"../signup/signup.jsp\">try again</a>.</p>" +
+                    "Please review the credentials and <a href=\"../signup/signup.jsp\">try again</a>.</p>" +
                     userSignUpError());
             return ERROR;
         }
@@ -48,30 +48,79 @@ public class SignUp extends ActionSupport {
     }
 
     private String userAlreadyInDbError() {
-        return "<p><b>User Credentials</b></p>\n" +
-                " <ul style=\"list-style: none;\">\n" +
-                "   <li class=\"list-group-item-error\"><b>First Name: </b>" + users.getFirstName() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Last Name: </b>" + users.getLastName() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Username: </b>" + users.getUsername() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Password: </b>" + users.getPassword() + "</li>\n" +
-                " </ul>\n";
+        return "<table class=\"table table-borderless\">\n" +
+                "    <tr>\n" +
+                "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>First Name:</b></td>\n" +
+                "        <td>" + users.getFirstName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Last Name:</b></td>\n" +
+                "        <td>" + users.getLastName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Username:</b></td>\n" +
+                "        <td>" + users.getUsername() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Password:</b></td>\n" +
+                "        <td>" + users.getPassword() + "</td>\n" +
+                "    </tr>\n" +
+                "</table>";
     }
 
     private String userSignUpError() {
-        return "<p><b>User Credentials</b></p>\n" +
-                " <ul style=\"list-style: none;\">\n" +
-                "   <li class=\"list-group-item-error\"><b>First Name: </b>" + users.getFirstName() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Last Name: </b>" + users.getLastName() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Email: </b>" + users.getEmail() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Username: </b>" + users.getUsername() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Password: </b>" + users.getPassword() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Check Password: </b>" + users.getCheckPassword() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Street Address: </b>" + users.getStreetAddress() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>City: </b>" + users.getCity() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>State: </b>" + users.getState() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Zip Code: </b>" + users.getZipCode() + "</li>\n" +
-                "   <li class=\"list-group-item-error\"><b>Phone Number: </b>" + users.getPhoneNumber() + "</li>\n" +
-                " </ul>\n";
+        return "<table class=\"table table-borderless\">\n" +
+                "    <tr>\n" +
+                "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>First Name:</b></td>\n" +
+                "        <td>" + users.getFirstName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Last Name:</b></td>\n" +
+                "        <td>" + users.getLastName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Email:</b></td>\n" +
+                "        <td>" + users.getEmail() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Username:</b></td>\n" +
+                "        <td>" + users.getUsername() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Password:</b></td>\n" +
+                "        <td>" + users.getPassword() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Check Password:</b></td>\n" +
+                "        <td>" + users.getCheckPassword() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Street Address:</b></td>\n" +
+                "        <td>" + users.getStreetAddress() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>City:</b></td>\n" +
+                "        <td>" + users.getCity() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>State:</b></td>\n" +
+                "        <td>" + users.getState() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Zip Code:</b></td>\n" +
+                "        <td>" + users.getZipCode() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Phone Number:</b></td>\n" +
+                "        <td>" + users.getPhoneNumber() + "</td>\n" +
+                "    </tr>\n" +
+                "</table>";
     }
 
     public Users getUsers() {

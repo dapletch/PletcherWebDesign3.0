@@ -1435,13 +1435,13 @@ textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #003300;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: #23527c;
+    color: #008800;
     text-decoration: underline;
 }
 
@@ -2975,6 +2975,17 @@ th {
 .table-bordered > thead > tr > td {
     border-bottom-width: 2px;
 }
+
+/* Custom CSS for table */
+.table-borderless tbody tr td,
+.table-borderless tbody tr th,
+.table-borderless thead tr th,
+.table-borderless thead tr td,
+.table-borderless tfoot tr th,
+.table-borderless tfoot tr td {
+    border: none;
+}
+/* End of custom css for table */
 
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #f9f9f9;
