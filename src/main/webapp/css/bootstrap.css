@@ -6512,14 +6512,25 @@ a.thumbnail.active {
 }
 
 .list-group-item {
+     position: relative;
+     display: block;
+     padding: 10px 15px;
+     margin-bottom: -1px;
+     /* background-color: #fff; */
+     background-color: #003300;
+     border: 1px solid #ddd;
+}
+
+/* Custom CSS for error messages */
+.list-group-item-error {
     position: relative;
     display: block;
     padding: 10px 15px;
     margin-bottom: -1px;
-    /* background-color: #fff; */
-    background-color: #003300;
+    background-color: #fff;
     border: 1px solid #ddd;
 }
+/* End of Custom CSS for error messaging */
 
 .list-group-item:first-child {
     border-top-left-radius: 4px;

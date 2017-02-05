@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<p>SUCCESS</p>
+<h1>Congratulations!</h1>
+<p>You have successfully signed up for an account through Pletcher Web Design. Having an account has its benefits which
+    allows you to keep tabs on the progress of your website. You may now login at any time.</p>
 
 </body>
 </html>
