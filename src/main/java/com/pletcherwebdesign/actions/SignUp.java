@@ -4,6 +4,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.pletcherwebdesign.beans.Users;
 import com.pletcherwebdesign.dao.SignUpDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
+import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
@@ -16,16 +19,15 @@ public class SignUp extends ActionSupport {
     private Users users = new Users();
     private String errorMessage;
 
+    private Logger logger = LoggerFactory.getLogger(SignUp.class);
+
     public String execute() {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         SignUpDao signUpDao = context.getBean(SignUpDao.class);
 
         try {
-            // Check if passwords entered match
-            if (!users.getPassword().equals(users.getCheckPassword())) {
-                setErrorMessage("<p>The passwords you entered do not match. " +
-                        "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            if (!isSignUpFormInputValid(users)) {
                 return ERROR;
             }
             // Check to see if the user already exists in the database
@@ -38,13 +40,39 @@ public class SignUp extends ActionSupport {
             // Insert the user into the database
             signUpDao.insertUser(users);
         } catch (DataAccessException e) {
-            System.out.println("There was an issue with submitting the record: \n" + e);
+            logger.error("There was an issue with submitting the record: \n", e);
             setErrorMessage("<p>The credentials you submitted were unable to be processed. " +
                     "Please review the credentials and <a href=\"../signup/signup.jsp\">try again</a>.</p>" +
                     userSignUpError());
             return ERROR;
         }
+        logger.info("User submitted to the database: " + users.toString());
         return SUCCESS;
+    }
+
+    private Boolean isSignUpFormInputValid(Users users) {
+        // Email needs to be validated to stop/prevent spam
+        if (!PletcherWebDesignUtils.isEmailAddressValid(users.getEmail())) {
+            setErrorMessage("<p>The email, " + users.getEmail() + ", you entered is not a valid email address. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            logger.error("User email is invalid: " + users.getEmail());
+            return false;
+        }
+        // Check if passwords entered match
+        if (!users.getPassword().equals(users.getCheckPassword())) {
+            setErrorMessage("<p>The passwords you entered do not match. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            logger.error("User passwords do not match: " + users.getPassword() + "\n" + users.getCheckPassword());
+            return false;
+        }
+        // Validating the phone number
+        if (!PletcherWebDesignUtils.isPhoneNumberValid(users.getPhoneNumber())) {
+            setErrorMessage("<p>The phone number, " + users.getPhoneNumber() + ", you entered is not a valid phone number. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            logger.error("User phone number is invalid: ", users.getPhoneNumber());
+            return false;
+        }
+        return true;
     }
 
     private String userAlreadyInDbError() {

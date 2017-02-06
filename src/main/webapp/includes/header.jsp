@@ -15,7 +15,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="../signup/signup.jsp">Sign Up</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Submit a Review</a></li>
+                        <li><a href="../review/review.jsp">Submit a Review</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -11,5 +11,10 @@
             <result name="success">signup-success.jsp</result>
             <result name="error">signup-error.jsp</result>
         </action>
+        <action name="review" class="com.pletcherwebdesign.actions.SubmitReview" method="execute">
+            <result name="input">review.action</result>
+            <result name="success">review-success.jsp</result>
+            <result name="error">review-error.jsp</result>
+        </action>
     </package>
 </struts>
