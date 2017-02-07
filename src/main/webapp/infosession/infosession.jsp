@@ -14,10 +14,12 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-12">
             <h1>Informational Session</h1>
             <p>Sign up for an free Informational Session today.</p>
             <p>All fields must be filled out in order, for the form to submit.</p>
+        </div>
+        <div class="col-xs-8">
             <form method="post" action="infoSession.action">
                 <div class="form-group">
                     <label for="firstName">First Name:</label>

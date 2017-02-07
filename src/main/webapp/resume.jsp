@@ -20,6 +20,7 @@
                 Dummerston, VT 05301<br>
                 802-275-7211<br>
                 <a href="mailto:pletcherwebdesign@gmail.com">pletcherwebdesign@gmail.com</a><br>
+                <a href="https://github.com/dapletch">https://github.com/dapletch</a><br>
             </p>
         </th>
     </tr>

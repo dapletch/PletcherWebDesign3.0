@@ -1435,13 +1435,15 @@ textarea {
 }
 
 a {
-    color: #003300;
+    /* color: #003300; */
+    color: #008800;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: #008800;
+    /* color: #008800; */
+    color: #003300;
     text-decoration: underline;
 }
 

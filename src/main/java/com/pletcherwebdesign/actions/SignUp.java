@@ -65,6 +65,13 @@ public class SignUp extends ActionSupport implements FormSubmission {
             logger.error("User email is invalid: " + users.getEmail());
             return false;
         }
+        // The username cannot be admin, for the admin password is in the
+        if (users.getUsername().equals("admin")) {
+            setErrorMessage("<p>The username you have chosen is not a valid username. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            logger.error("User attempted to create admin account: " + users.getUsername());
+            return false;
+        }
         // Check if passwords entered match
         if (!users.getPassword().equals(users.getCheckPassword())) {
             setErrorMessage("<p>The passwords you entered do not match. " +

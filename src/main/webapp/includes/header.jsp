@@ -23,19 +23,17 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Sigma Delta Chi Website</a></li>
+                        <li><a href="../portfolio/sigma-website.jsp">Sigma Delta Chi Website</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Vermont Tech Jobs</a></li>
+                        <li><a href="../portfolio/vermont-tech-jobs.jsp">Vermont Tech Jobs</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Skin &amp; Tonic Website</a></li>
+                        <li><a href="../portfolio/skin-and-tonic.jsp">Skin &amp; Tonic Website</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Skin &amp; Tonic Mobile</a></li>
+                        <li><a href="../portfolio/skin-and-tonic-mobile-app.jsp">Skin &amp; Tonic Mobile</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">C# Point of Sale Receipt</a></li>
+                        <li><a href="../portfolio/csharp-pos-receipt.jsp">C# Point of Sale Receipt</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Java Log Analytics App</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Java CSV Parsing App</a></li>
+                        <li><a href="../portfolio/java-log-parse.jsp">Java Log Analytics App</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
