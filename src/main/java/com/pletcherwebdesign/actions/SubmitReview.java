@@ -48,9 +48,9 @@ public class SubmitReview extends ActionSupport {
             return false;
         }
         if (!PletcherWebDesignUtils.isPhoneNumberValid(review.getPhoneNumber())) {
-            setErrorMessage("<p>The phone number, " + review.getEmail() + ", you entered is not a valid phone number. " +
+            setErrorMessage("<p>The phone number, " + review.getPhoneNumber() + ", you entered is not a valid phone number. " +
                     "Please <a href=\"../review/review.jsp\">try again</a>.</p>");
-            logger.error("Review phone numbe is not valid: " + review.getPhoneNumber());
+            logger.error("Review phone number is not valid: " + review.getPhoneNumber());
             return false;
         }
         return true;
@@ -78,7 +78,7 @@ public class SubmitReview extends ActionSupport {
                 "        <td>" + review.getPhoneNumber() + "</td>\n" +
                 "    </tr>\n" +
                 "    <tr>\n" +
-                "        <td><b>Phone Number:</b></td>\n" +
+                "        <td><b>Comment:</b></td>\n" +
                 "        <td>" + review.getComment() + "</td>\n" +
                 "    </tr>\n" +
                 "</table>";

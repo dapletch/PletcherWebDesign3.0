@@ -16,5 +16,10 @@
             <result name="success">review-success.jsp</result>
             <result name="error">review-error.jsp</result>
         </action>
+        <action name="infoSession" class="com.pletcherwebdesign.actions.SubmitInfoSession" method="execute">
+            <result name="input">infosession.action</result>
+            <result name="success">infosession-success.jsp</result>
+            <result name="error">infosession-error.jsp</result>
+        </action>
     </package>
 </struts>
