@@ -1,8 +1,13 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.pletcherwebdesign.beans.FormSubmission;
 import com.pletcherwebdesign.beans.Users;
 import com.pletcherwebdesign.dao.SignUpDao;
+import com.pletcherwebdesign.email.beans.MessageBody;
+import com.pletcherwebdesign.email.dao.EmailFormDao;
+import com.pletcherwebdesign.email.sendemail.EmailConfig;
+import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
 import org.slf4j.Logger;
@@ -14,7 +19,7 @@ import org.springframework.dao.DataAccessException;
 /**
  * Created by Seth on 2/4/2017.
  */
-public class SignUp extends ActionSupport {
+public class SignUp extends ActionSupport implements FormSubmission {
 
     private Users users = new Users();
     private String errorMessage;
@@ -37,16 +42,18 @@ public class SignUp extends ActionSupport {
                         userAlreadyInDbError());
                 return ERROR;
             }
-            // Insert the user into the database
-            signUpDao.insertUser(users);
         } catch (DataAccessException e) {
             logger.error("There was an issue with submitting the record: \n", e);
             setErrorMessage("<p>The credentials you submitted were unable to be processed. " +
                     "Please review the credentials and <a href=\"../signup/signup.jsp\">try again</a>.</p>" +
-                    userSignUpError());
+                    formError());
             return ERROR;
         }
         logger.info("User submitted to the database: " + users.toString());
+        // Insert the user into the database
+        signUpDao.insertUser(users);
+        // Send notification email as text message to my personal phone
+        sendNotificationEmail();
         return SUCCESS;
     }
 
@@ -75,31 +82,7 @@ public class SignUp extends ActionSupport {
         return true;
     }
 
-    private String userAlreadyInDbError() {
-        return "<table class=\"table table-borderless\">\n" +
-                "    <tr>\n" +
-                "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td><b>First Name:</b></td>\n" +
-                "        <td>" + users.getFirstName() + "</td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td><b>Last Name:</b></td>\n" +
-                "        <td>" + users.getLastName() + "</td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td><b>Username:</b></td>\n" +
-                "        <td>" + users.getUsername() + "</td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td><b>Password:</b></td>\n" +
-                "        <td>" + users.getPassword() + "</td>\n" +
-                "    </tr>\n" +
-                "</table>";
-    }
-
-    private String userSignUpError() {
+    public String formError() {
         return "<table class=\"table table-borderless\">\n" +
                 "    <tr>\n" +
                 "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
@@ -151,6 +134,57 @@ public class SignUp extends ActionSupport {
                 "</table>";
     }
 
+    public void sendNotificationEmail() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
+        SendEmail sendEmail = context.getBean(SendEmail.class);
+        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
+    }
+
+    public MessageBody getMessageBodyForm() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
+        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("signup");
+        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
+    }
+
+    public String emailMessage() {
+        return "The following user has just signed up for Pletcher Web Desgin: \n" +
+                "First Name: " + users.getFirstName() + "\n" +
+                "Last Name: " + users.getLastName() + "\n" +
+                "Email: " + users.getEmail() + "\n" +
+                "Username: " + users.getUsername() + "\n" +
+                "Password: " + users.getPassword() + "\n" +
+                "Street Address: " + users.getStreetAddress() + "\n" +
+                "City: " + users.getCity() + "\n" +
+                "State: " + users.getState() + "\n" +
+                "Zip Code: " + users.getZipCode() + "\n" +
+                "Phone Number: " + users.getPhoneNumber();
+    }
+
+    private String userAlreadyInDbError() {
+        return "<table class=\"table table-borderless\">\n" +
+                "    <tr>\n" +
+                "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>First Name:</b></td>\n" +
+                "        <td>" + users.getFirstName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Last Name:</b></td>\n" +
+                "        <td>" + users.getLastName() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Username:</b></td>\n" +
+                "        <td>" + users.getUsername() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
+                "        <td><b>Password:</b></td>\n" +
+                "        <td>" + users.getPassword() + "</td>\n" +
+                "    </tr>\n" +
+                "</table>";
+    }
+
     public Users getUsers() {
         return users;
     }
@@ -166,4 +200,5 @@ public class SignUp extends ActionSupport {
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
+
 }

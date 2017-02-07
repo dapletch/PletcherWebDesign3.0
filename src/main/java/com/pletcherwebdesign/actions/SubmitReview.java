@@ -1,8 +1,13 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.pletcherwebdesign.beans.FormSubmission;
 import com.pletcherwebdesign.beans.Review;
 import com.pletcherwebdesign.dao.ReviewDao;
+import com.pletcherwebdesign.email.beans.MessageBody;
+import com.pletcherwebdesign.email.dao.EmailFormDao;
+import com.pletcherwebdesign.email.sendemail.EmailConfig;
+import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
 import org.slf4j.Logger;
@@ -14,7 +19,7 @@ import org.springframework.dao.DataAccessException;
 /**
  * Created by Seth on 2/5/2017.
  */
-public class SubmitReview extends ActionSupport {
+public class SubmitReview extends ActionSupport implements FormSubmission {
 
     private Review review = new Review();
     private String errorMessage;
@@ -33,10 +38,11 @@ public class SubmitReview extends ActionSupport {
             logger.error("There was a problem submitting the review: \n", e);
             setErrorMessage("<p>There was a problem submitting your review. " +
                     "Please review the fields and <a href=\"../review/review.jsp\">try again</a>.</p>" +
-                    reviewSubmitError());
+                    formError());
             return ERROR;
         }
         reviewDao.insertReview(review);
+        sendNotificationEmail();
         return SUCCESS;
     }
 
@@ -56,7 +62,7 @@ public class SubmitReview extends ActionSupport {
         return true;
     }
 
-    private String reviewSubmitError() {
+    public String formError() {
         return "<table class=\"table table-borderless\">\n" +
                 "    <tr>\n" +
                 "        <td align=\"left\" colspan=\"2\"><b>User Credentials</b></td>\n" +
@@ -82,6 +88,28 @@ public class SubmitReview extends ActionSupport {
                 "        <td>" + review.getComment() + "</td>\n" +
                 "    </tr>\n" +
                 "</table>";
+    }
+
+    public void sendNotificationEmail() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
+        SendEmail sendEmail = context.getBean(SendEmail.class);
+        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
+    }
+
+    public MessageBody getMessageBodyForm() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
+        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("review");
+        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
+    }
+
+    public String emailMessage() {
+        return "The following person has just submitted a review for Pletcher Web Design: \n" +
+                "First Name: " + review.getFirstName() + "\n" +
+                "Last Name: " + review.getLastName() + "\n" +
+                "Email: " + review.getEmail() + "\n" +
+                "Phone Number: " + review.getPhoneNumber() + "\n" +
+                "Comment: " + review.getComment();
     }
 
     public Review getReview() {

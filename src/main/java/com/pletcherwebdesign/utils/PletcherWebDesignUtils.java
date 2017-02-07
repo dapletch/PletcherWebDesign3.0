@@ -1,11 +1,13 @@
 package com.pletcherwebdesign.utils;
 
 
+import com.pletcherwebdesign.email.beans.MessageBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import java.io.File;
 
 /**
  * Created by Seth on 2/5/2017.
@@ -39,6 +41,13 @@ public class PletcherWebDesignUtils {
         else
             logger.error("Malformed phone number: ", phoneNo);
             return false;
+    }
 
+    public static MessageBody setMessageBodyNoAttachment(MessageBody messageBody, String emailMessage) {
+        return new MessageBody(messageBody.getRecipient(), messageBody.getSubject(), emailMessage);
+    }
+
+    public static MessageBody setMessageBodyWithAttachment(MessageBody messageBody, String emailMessage, File fileAttachment) {
+        return new MessageBody(messageBody.getRecipient(), messageBody.getSubject(), emailMessage, fileAttachment);
     }
 }

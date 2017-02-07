@@ -1,8 +1,13 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.pletcherwebdesign.beans.FormSubmission;
 import com.pletcherwebdesign.beans.InfoSession;
 import com.pletcherwebdesign.dao.InfoSessionDao;
+import com.pletcherwebdesign.email.beans.MessageBody;
+import com.pletcherwebdesign.email.dao.EmailFormDao;
+import com.pletcherwebdesign.email.sendemail.EmailConfig;
+import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
 import org.slf4j.Logger;
@@ -14,7 +19,7 @@ import org.springframework.dao.DataAccessException;
 /**
  * Created by Seth on 2/6/2017.
  */
-public class SubmitInfoSession extends ActionSupport {
+public class SubmitInfoSession extends ActionSupport implements FormSubmission {
 
     private InfoSession infoSession = new InfoSession();
     private String errorMessage;
@@ -33,10 +38,11 @@ public class SubmitInfoSession extends ActionSupport {
             logger.error("There was a problem submitting the info session record: \n" + e);
             setErrorMessage("<p>There was a problem submitting your request for an informational session. " +
                     "Please review the fields and <a href=\"../infosession/infosession.jsp\">try again</a>.</p>" +
-                    infoSessionSubmitError());
+                    formError());
             return ERROR;
         }
         infoSessionDao.insertInfoSessionRecord(infoSession);
+        sendNotificationEmail();
         return SUCCESS;
     }
 
@@ -63,7 +69,7 @@ public class SubmitInfoSession extends ActionSupport {
         return true;
     }
 
-    private String infoSessionSubmitError() {
+    public String formError() {
         return "<table class=\"table table-borderless\">\n" +
                 "    <tr>\n" +
                 "        <td align=\"left\" colspan=\"2\"><b>Informational Session Form Submission</b></td>\n" +
@@ -95,6 +101,29 @@ public class SubmitInfoSession extends ActionSupport {
                 "</table>";
     }
 
+    public void sendNotificationEmail() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
+        SendEmail sendEmail = context.getBean(SendEmail.class);
+        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
+    }
+
+    public MessageBody getMessageBodyForm() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
+        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("infosession");
+        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
+    }
+
+    public String emailMessage() {
+        return "The following person has just signed up for FREE informational session through Pletcher Web Desgin: \n" +
+                "First Name: " + infoSession.getFirstName() + "\n" +
+                "Last Name: " + infoSession.getLastName() + "\n" +
+                "Email: " + infoSession.getEmail() + "\n" +
+                "Phone Number: " + infoSession.getPhoneNumber() + "\n" +
+                "Best Time: " + infoSession.getBestTime() + "\n" +
+                "Description: " + infoSession.getDescription();
+    }
+
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -110,4 +139,5 @@ public class SubmitInfoSession extends ActionSupport {
     public void setInfoSession(InfoSession infoSession) {
         this.infoSession = infoSession;
     }
+
 }
