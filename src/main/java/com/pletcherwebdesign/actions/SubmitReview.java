@@ -34,6 +34,8 @@ public class SubmitReview extends ActionSupport implements FormSubmission {
             if (!isReviewFormInputValid(review)) {
                 return ERROR;
             }
+            reviewDao.insertReview(review);
+            sendNotificationEmail();
         } catch (DataAccessException e) {
             logger.error("There was a problem submitting the review: \n", e);
             setErrorMessage("<p>There was a problem submitting your review. " +
@@ -41,8 +43,6 @@ public class SubmitReview extends ActionSupport implements FormSubmission {
                     formError());
             return ERROR;
         }
-        reviewDao.insertReview(review);
-        sendNotificationEmail();
         return SUCCESS;
     }
 

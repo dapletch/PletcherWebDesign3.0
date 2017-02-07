@@ -2,12 +2,14 @@ package com.pletcherwebdesign.utils;
 
 
 import com.pletcherwebdesign.email.beans.MessageBody;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.File;
+import java.sql.Timestamp;
 
 /**
  * Created by Seth on 2/5/2017.
@@ -41,6 +43,11 @@ public class PletcherWebDesignUtils {
         else
             logger.error("Malformed phone number: ", phoneNo);
             return false;
+    }
+
+    public static java.sql.Timestamp getCurrentSqlTimeStamp() {
+        DateTime dateTime = new DateTime();
+        return new Timestamp(dateTime.getMillis());
     }
 
     public static MessageBody setMessageBodyNoAttachment(MessageBody messageBody, String emailMessage) {

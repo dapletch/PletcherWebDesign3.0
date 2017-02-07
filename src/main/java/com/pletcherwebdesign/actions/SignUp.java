@@ -42,6 +42,10 @@ public class SignUp extends ActionSupport implements FormSubmission {
                         userAlreadyInDbError());
                 return ERROR;
             }
+            // Insert the user into the database
+            signUpDao.insertUser(users);
+            // Send notification email as text message to my personal phone
+            sendNotificationEmail();
         } catch (DataAccessException e) {
             logger.error("There was an issue with submitting the record: \n", e);
             setErrorMessage("<p>The credentials you submitted were unable to be processed. " +
@@ -50,10 +54,6 @@ public class SignUp extends ActionSupport implements FormSubmission {
             return ERROR;
         }
         logger.info("User submitted to the database: " + users.toString());
-        // Insert the user into the database
-        signUpDao.insertUser(users);
-        // Send notification email as text message to my personal phone
-        sendNotificationEmail();
         return SUCCESS;
     }
 
@@ -148,7 +148,7 @@ public class SignUp extends ActionSupport implements FormSubmission {
     }
 
     public String emailMessage() {
-        return "The following user has just signed up for Pletcher Web Desgin: \n" +
+        return "The following user has just signed up for Pletcher Web Design: \n" +
                 "First Name: " + users.getFirstName() + "\n" +
                 "Last Name: " + users.getLastName() + "\n" +
                 "Email: " + users.getEmail() + "\n" +

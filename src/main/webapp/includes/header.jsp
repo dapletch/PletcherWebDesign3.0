@@ -49,6 +49,7 @@
                 <li><a href="../process.jsp">Process</a></li>
                 <li><a href="../craft.jsp">The Craft</a></li>
                 <li><a href="../infosession/infosession.jsp">Informational Session</a></li>
+                <li><a href="../contact/contact.jsp">Contact Us</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="form">
                 <div class="form-group">

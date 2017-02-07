@@ -21,5 +21,10 @@
             <result name="success">infosession-success.jsp</result>
             <result name="error">infosession-error.jsp</result>
         </action>
+        <action name="contact" class="com.pletcherwebdesign.actions.ContactUs" method="execute">
+            <result name="input">contact.action</result>
+            <result name="success">contact-success.jsp</result>
+            <result name="error">contact-error.jsp</result>
+        </action>
     </package>
 </struts>

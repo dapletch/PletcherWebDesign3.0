@@ -14,7 +14,7 @@
 <body>
 
 <c:set var="error" value="${errorMessage}" />
-<c:out value="${error}" escapeXml="falss" />
+<c:out value="${error}" escapeXml="false" />
 
 </body>
 </html>

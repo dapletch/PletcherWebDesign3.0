@@ -34,6 +34,8 @@ public class SubmitInfoSession extends ActionSupport implements FormSubmission {
             if (!isInfoSessionFormInputValid(infoSession)) {
                 return ERROR;
             }
+            infoSessionDao.insertInfoSessionRecord(infoSession);
+            sendNotificationEmail();
         } catch (DataAccessException e) {
             logger.error("There was a problem submitting the info session record: \n" + e);
             setErrorMessage("<p>There was a problem submitting your request for an informational session. " +
@@ -41,8 +43,6 @@ public class SubmitInfoSession extends ActionSupport implements FormSubmission {
                     formError());
             return ERROR;
         }
-        infoSessionDao.insertInfoSessionRecord(infoSession);
-        sendNotificationEmail();
         return SUCCESS;
     }
 
@@ -115,7 +115,7 @@ public class SubmitInfoSession extends ActionSupport implements FormSubmission {
     }
 
     public String emailMessage() {
-        return "The following person has just signed up for FREE informational session through Pletcher Web Desgin: \n" +
+        return "The following person has just signed up for FREE informational session through Pletcher Web Design: \n" +
                 "First Name: " + infoSession.getFirstName() + "\n" +
                 "Last Name: " + infoSession.getLastName() + "\n" +
                 "Email: " + infoSession.getEmail() + "\n" +
