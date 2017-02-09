@@ -26,5 +26,11 @@
             <result name="success">contact-success.jsp</result>
             <result name="error">contact-error.jsp</result>
         </action>
+        <action name="login" class="com.pletcherwebdesign.actions.LoginIntoSite" method="execute">
+            <result name="input">login.action</result>
+            <result name="admin_login">WEB-INF/admin-login-success.jsp</result>
+            <result name="success">WEB-INF/client-login-success.jsp</result>
+            <result name="error">WEB-INF/login-error.jsp</result>
+        </action>
     </package>
 </struts>

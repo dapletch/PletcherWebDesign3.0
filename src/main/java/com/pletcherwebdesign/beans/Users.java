@@ -5,6 +5,7 @@ package com.pletcherwebdesign.beans;
  */
 public class Users {
 
+    private Integer userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -19,6 +20,14 @@ public class Users {
 
     public Users() {
         super();
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {

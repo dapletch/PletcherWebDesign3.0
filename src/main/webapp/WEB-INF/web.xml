@@ -20,4 +20,9 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <!-- Setting the any session that is created to timeout after 30 minutes -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 </web-app>

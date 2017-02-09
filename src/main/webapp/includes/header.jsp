@@ -49,14 +49,14 @@
                 <li><a href="../infosession/infosession.jsp">Informational Session</a></li>
                 <li><a href="../contact/contact.jsp">Contact Us</a></li>
             </ul>
-            <form class="navbar-form navbar-right" role="form">
+            <form method="post" action="login.action" class="navbar-form navbar-right" role="form">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="Username">
+                    <input type="text" class="form-control" name="login.username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="login.password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-default">Sign In</button>
+                <button type="submit" value="Submit" class="btn btn-default">Sign In</button>
             </form>
         </div>
     </div>

@@ -50,6 +50,10 @@ public class PletcherWebDesignUtils {
         return new Timestamp(dateTime.getMillis());
     }
 
+    public static DateTime getCurrentTimeStamp() {
+        return new DateTime().toDateTime();
+    }
+
     public static MessageBody setMessageBodyNoAttachment(MessageBody messageBody, String emailMessage) {
         return new MessageBody(messageBody.getRecipient(), messageBody.getSubject(), emailMessage);
     }
