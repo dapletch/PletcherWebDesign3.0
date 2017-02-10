@@ -1,7 +1,7 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.FormSubmission;
+import com.pletcherwebdesign.beans.interfaces.FormSubmission;
 import com.pletcherwebdesign.beans.Users;
 import com.pletcherwebdesign.dao.SignUpDao;
 import com.pletcherwebdesign.email.beans.MessageBody;

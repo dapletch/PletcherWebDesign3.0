@@ -2,7 +2,7 @@ package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.pletcherwebdesign.beans.Contact;
-import com.pletcherwebdesign.beans.FormSubmission;
+import com.pletcherwebdesign.beans.interfaces.FormSubmission;
 import com.pletcherwebdesign.dao.ContactDao;
 import com.pletcherwebdesign.email.beans.MessageBody;
 import com.pletcherwebdesign.email.dao.EmailFormDao;

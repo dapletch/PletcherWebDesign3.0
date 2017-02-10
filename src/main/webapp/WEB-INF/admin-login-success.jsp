@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<c:set var="userName" value="${login.username}" />
+<c:set var="userName" value="${username}" />
 <h1>Welcome to the Admin Page, <c:out value="${userName}" /></h1>
 
 </body>

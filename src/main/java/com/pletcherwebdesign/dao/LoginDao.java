@@ -1,5 +1,6 @@
 package com.pletcherwebdesign.dao;
 
+import com.pletcherwebdesign.beans.Admin;
 import com.pletcherwebdesign.beans.Login;
 import com.pletcherwebdesign.beans.Users;
 import org.slf4j.Logger;
@@ -30,15 +31,31 @@ public class LoginDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private String selectAdminUserFromDbQuery = "select count(*) from administrator where username = ? and password = ?";
+    //private String selectAdminUserFromDbQuery = "select count(*) from administrator where username = ? and password = ?";
+
+    private String selectAdminUserFromDbQuery = "select admin_id, username from administrator where username = ? and password = ?";
 
     private String selectClientUserFromDbQuery= "select usr_id, first_name, last_name, email, username" +
             ", street_address, city, st, zip, phone from users where username = ? and password = ?";
 
-    public Boolean isAdminUserValid(Login login) {
-        Integer userInt = jdbcTemplate.queryForObject(selectAdminUserFromDbQuery, Integer.class
-        , login.getUsername(), login.getPassword());
-        return userInt == 1;
+    public Admin getAdminUserInfo(Login login) {
+        try {
+            Admin admin = jdbcTemplate.queryForObject(selectAdminUserFromDbQuery, new Object[]{login.getUsername(), login.getPassword()},
+                    new RowMapper<Admin>() {
+                        public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+                            Admin admin = new Admin();
+                            admin.setAdminId(rs.getInt(1));
+                            admin.setUsername(rs.getString(2));
+
+                            return admin;
+                        }
+                    });
+            return admin;
+        } catch (EmptyResultDataAccessException e) {
+            logger.error("There was an error retrieving the recipient, and subject: \n" + e);
+            return null;
+        }
     }
 
     public Users getClientUserInfo(Login login) {

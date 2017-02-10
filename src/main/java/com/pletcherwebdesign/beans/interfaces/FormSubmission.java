@@ -1,4 +1,4 @@
-package com.pletcherwebdesign.beans;
+package com.pletcherwebdesign.beans.interfaces;
 
 import com.pletcherwebdesign.email.beans.MessageBody;
 

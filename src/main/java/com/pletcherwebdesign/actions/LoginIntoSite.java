@@ -1,16 +1,17 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.FormSubmission;
-import com.pletcherwebdesign.beans.Login;
-import com.pletcherwebdesign.beans.Users;
+import com.pletcherwebdesign.beans.*;
+import com.pletcherwebdesign.beans.interfaces.FormSubmission;
 import com.pletcherwebdesign.dao.LoginDao;
+import com.pletcherwebdesign.dao.TicketDao;
 import com.pletcherwebdesign.email.beans.MessageBody;
 import com.pletcherwebdesign.email.dao.EmailFormDao;
 import com.pletcherwebdesign.email.sendemail.EmailConfig;
 import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import com.pletcherwebdesign.utils.TicketUtils;
 import org.apache.struts2.interceptor.SessionAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,17 +30,19 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
 
     private Login login = new Login();
     private Users user = new Users();
+    private Admin admin = new Admin();
     private String errorMessage;
+    private String userTickets;
     private String clientUserId;
-    private Boolean adminStatus;
+    private String adminUserId;
     private Boolean sessionStatus;
+    private String username;
     private Map<String, Object> sessionMap;
+    private List<Ticket> clientTicketList = new ArrayList<>();
 
     private Logger logger = LoggerFactory.getLogger(LoginIntoSite.class);
 
     private static final String ADMIN_LOGIN = "admin_login";
-    // This is under the assumption that there will only be one administrator for Pletcher Web Design
-    private static final String ADMIN_SESSION_KEY = "administrator";
 
     public String execute() {
 
@@ -45,52 +50,65 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
         LoginDao loginDao = context.getBean(LoginDao.class);
 
         user = loginDao.getClientUserInfo(login);
-        setClientUserId(checkUserObjectReturnUserClientKey(user));
-        setAdminStatus(loginDao.isAdminUserValid(login));
-        setSessionStatus(isSessionValid(getClientUserId()));
+        admin = loginDao.getAdminUserInfo(login);
+        checkSessionKeysSetDefault(user, admin);
+        setSessionStatus(isSessionValid(getClientUserId(), getAdminUserId()));
 
         try {
+            // Setting the username for display on the page when the user logs in
+            setUsername(login.getUsername());
             // If the sessionStatus is true check to see what kind of session is being accessed
             if (!getSessionStatus()) {
-                if (getAdminStatus()) {
+                if (getAdmin() != null) {
                     // Adding email functionality to ensure that no one gets the admin password except me
                     // if someone logs in when I'm not accessing the admin page I'll know it.
-                    sessionMap.put(ADMIN_SESSION_KEY, login.getUsername());
+                    sessionMap.put(getAdminUserId(), login.getUsername());
                     sendNotificationEmail();
                     return ADMIN_LOGIN;
                 }
                 if (getUser() != null) {
                     logger.info("The user has logged in: " + user.toString());
                     sessionMap.put(getClientUserId(), login.getUsername());
+                    setUserTickets(getTicketListForClient(login.getUsername()));
                     return SUCCESS;
                 }
             } else {
                 if (sessionMap.containsKey(getClientUserId())) {
+                    setUserTickets(getTicketListForClient(login.getUsername()));
                     return SUCCESS;
                 }
-                if (sessionMap.containsKey(ADMIN_SESSION_KEY)) {
+                if (sessionMap.containsKey(getAdminUserId())) {
                     return ADMIN_LOGIN;
                 }
             }
         } catch (DataAccessException e) {
-            logger.info("There was a problem with the user logging in: " + login.toString());
+            logger.error("There was a problem with the user logging in: " + e);
         }
         setErrorMessage(formError());
         return ERROR;
     }
 
-    private String checkUserObjectReturnUserClientKey(Users user) {
-        if (user != null) {
-            return String.valueOf(user.getUserId());
-        }
-        return "noSessionKey";
+    private String getTicketListForClient(String username) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        TicketDao ticketDao = context.getBean(TicketDao.class);
+        clientTicketList = ticketDao.selectTicketsForClient(username);
+        return TicketUtils.getTicketsClientToSee(clientTicketList);
     }
 
-    private Boolean isSessionValid(String clientUserId) {
+    private void checkSessionKeysSetDefault(Users user, Admin admin) {
+        if (user != null) {
+            setClientUserId(String.valueOf(user.getUserId()));
+        } else setClientUserId("noUserSessionKey");
+        if (admin != null) {
+            setAdminUserId(String.valueOf(admin.getAdminId()));
+        } else setAdminUserId("noAdminSessionKey");
+    }
+
+    private Boolean isSessionValid(String clientUserId, String adminUserId) {
         if (clientUserId != null) {
             return sessionMap.containsKey(clientUserId);
         }
-        return sessionMap.containsKey("administrator");
+        return sessionMap.containsKey(adminUserId);
     }
 
     public String formError() {
@@ -136,6 +154,14 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
         this.user = user;
     }
 
+    private Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -144,27 +170,43 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
         this.errorMessage = errorMessage;
     }
 
-    public String getClientUserId() {
+    public String getUserTickets() {
+        return userTickets;
+    }
+
+    public void setUserTickets(String userTickets) {
+        this.userTickets = userTickets;
+    }
+
+    private String getClientUserId() {
         return clientUserId;
     }
 
-    public void setClientUserId(String clientUserId) {
+    private void setClientUserId(String clientUserId) {
         this.clientUserId = clientUserId;
     }
 
-    public Boolean getAdminStatus() {
-        return adminStatus;
+    private String getAdminUserId() {
+        return adminUserId;
     }
 
-    public void setAdminStatus(Boolean adminStatus) {
-        this.adminStatus = adminStatus;
+    private void setAdminUserId(String adminUserId) {
+        this.adminUserId = adminUserId;
     }
 
-    public Boolean getSessionStatus() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private Boolean getSessionStatus() {
         return sessionStatus;
     }
 
-    public void setSessionStatus(Boolean sessionStatus) {
+    private void setSessionStatus(Boolean sessionStatus) {
         this.sessionStatus = sessionStatus;
     }
 }
