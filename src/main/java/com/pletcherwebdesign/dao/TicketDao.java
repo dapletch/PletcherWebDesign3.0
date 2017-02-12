@@ -30,9 +30,9 @@ public class TicketDao {
 
     private Logger logger = LoggerFactory.getLogger(TicketDao.class);
 
-    private String selectTicketsForClientQuery = "select username, subject, project_order, progress, dev_comment, deadline, ticket_date from ticket where username = ?";
+    private String selectTicketsForClientQuery = "select username, subject, project_order, priority_level, progress, dev_comment, deadline, ticket_date from ticket where username = ?";
 
-    private String insertTicketIntoDbQuery = "insert into ticket (username, subject, project_order, progress, dev_comment, deadline) values (?, ?, ?, ?, ?, ?)";
+    private String insertTicketIntoDbQuery = "insert into ticket (username, subject, project_order, priority_level, progress, dev_comment, deadline) values (?, ?, ?, ?, ?, ?, ?)";
 
     public List<Ticket> selectTicketsForClient(String username) {
         return jdbcTemplate.query(selectTicketsForClientQuery, new Object[]{username}, new RowMapper<Ticket>() {
@@ -42,10 +42,11 @@ public class TicketDao {
                 ticket.setUsername(rs.getString(1));
                 ticket.setSubject(rs.getString(2));
                 ticket.setProjectOrder(rs.getString(3));
-                ticket.setProgress(rs.getString(4));
-                ticket.setDevComment(rs.getString(5));
-                ticket.setDeadline(rs.getString(6));
-                ticket.setTicketDate(new DateTime(rs.getTimestamp(7)));
+                ticket.setPriorityLevel(rs.getString(4));
+                ticket.setProgress(rs.getString(5));
+                ticket.setDevComment(rs.getString(6));
+                ticket.setDeadline(rs.getString(7));
+                ticket.setTicketDate(new DateTime(rs.getTimestamp(8)));
                 return ticket;
             }
         });
@@ -55,6 +56,7 @@ public class TicketDao {
         jdbcTemplate.update(insertTicketIntoDbQuery, ticket.getUsername()
                 , ticket.getSubject()
                 , ticket.getProjectOrder()
+                , ticket.getPriorityLevel()
                 , ticket.getProgress()
                 , ticket.getDevComment()
                 , ticket.getDeadline());

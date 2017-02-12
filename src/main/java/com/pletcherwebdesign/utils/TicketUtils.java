@@ -17,6 +17,7 @@ public class TicketUtils {
                 "<th>ID</th>\n" +
                 "<th>Subject</th>\n" +
                 "<th>Description</th>\n" +
+                "<th>Priority Level</th>\n" +
                 "<th>Progress</th>\n" +
                 "<th>Developer Comment</th>\n" +
                 "<th>Deadline</th>\n" +
@@ -29,6 +30,7 @@ public class TicketUtils {
             sb.append("<td>").append(ticket.getTicketId()).append("</td>\n");
             sb.append("<td>").append(ticket.getSubject()).append("</td>\n");
             sb.append("<td>").append(ticket.getProjectOrder()).append("</td>\n");
+            sb.append("<td>").append(ticket.getPriorityLevel()).append("</td>\n");
             sb.append("<td>").append(ticket.getProgress()).append("</td>\n");
             sb.append("<td>").append(ticket.getDevComment()).append("</td>\n");
             sb.append("<td>").append(ticket.getDeadline()).append("</td>\n");

@@ -11,6 +11,7 @@ public class Ticket {
     private String username;
     private String subject;
     private String projectOrder;
+    private String priorityLevel;
     private String progress;
     private String devComment;
     private String deadline;
@@ -20,20 +21,22 @@ public class Ticket {
         super();
     }
 
-    public Ticket(String username, String subject, String projectOrder, String progress, String devComment, String deadline) {
+    public Ticket(String username, String subject, String projectOrder, String priorityLevel, String progress, String devComment, String deadline) {
         this.username = username;
         this.subject = subject;
         this.projectOrder = projectOrder;
+        this.priorityLevel = priorityLevel;
         this.progress = progress;
         this.devComment = devComment;
         this.deadline = deadline;
     }
 
-    public Ticket(Integer ticketId, String username, String subject, String projectOrder, String progress, String devComment, String deadline, DateTime ticketDate) {
+    public Ticket(Integer ticketId, String username, String subject, String projectOrder, String priorityLevel, String progress, String devComment, String deadline, DateTime ticketDate) {
         this.ticketId = ticketId;
         this.username = username;
         this.subject = subject;
         this.projectOrder = projectOrder;
+        this.priorityLevel = priorityLevel;
         this.progress = progress;
         this.devComment = devComment;
         this.deadline = deadline;
@@ -70,6 +73,14 @@ public class Ticket {
 
     public void setProjectOrder(String projectOrder) {
         this.projectOrder = projectOrder;
+    }
+
+    public String getPriorityLevel() {
+        return priorityLevel;
+    }
+
+    public void setPriorityLevel(String priorityLevel) {
+        this.priorityLevel = priorityLevel;
     }
 
     public String getProgress() {
@@ -111,6 +122,7 @@ public class Ticket {
                 ", username='" + username + '\'' +
                 ", subject='" + subject + '\'' +
                 ", projectOrder='" + projectOrder + '\'' +
+                ", priorityLevel='" + priorityLevel + '\'' +
                 ", progress='" + progress + '\'' +
                 ", devComment='" + devComment + '\'' +
                 ", deadline='" + deadline + '\'' +

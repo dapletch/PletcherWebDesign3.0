@@ -68,7 +68,6 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
             setUsername(username);
             return true;
         } else {
-            setErrorMessage("<p>Your session has timed out. Please back login and <a href=\"../index.jsp\">try again</a>.</p>");
             return false;
         }
     }
@@ -80,7 +79,8 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
         }
         if ((ticket.getSubject().equals("") || ticket.getSubject() == null)
                 || (ticket.getProjectOrder().equals("") || ticket.getProjectOrder() == null)
-                || (ticket.getDeadline().equals("") || ticket.getDeadline() == null)) {
+                || (ticket.getPriorityLevel().equals("") || ticket.getPriorityLevel() == null)
+                || (ticket.getDeadline() == null)) {
             setErrorMessage("<p>Please make sure all the inputs are filled in and try again</p><br>" + formError());
             return false;
         }
@@ -105,6 +105,10 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
                 "        <td>" + ticket.getProjectOrder() + "</td>\n" +
                 "    </tr>\n" +
                 "    <tr>\n" +
+                "        <td><b>Priority Level:</b></td>\n" +
+                "        <td>" + ticket.getPriorityLevel() + "</td>\n" +
+                "    </tr>\n" +
+                "    <tr>\n" +
                 "        <td><b>Progress:</b></td>\n" +
                 "        <td>" + ticket.getProgress() + "</td>\n" +
                 "    </tr>\n" +
@@ -113,8 +117,8 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
                 "        <td>" + ticket.getDevComment() + "</td>\n" +
                 "    </tr>\n" +
                 "    <tr>\n" +
-                "        <td><b>Date Submitted:</b></td>\n" +
-                "        <td>" + ticket.getTicketDate() + "</td>\n" +
+                "        <td><b>Developer Comment:</b></td>\n" +
+                "        <td>" + ticket.getDeadline() + "</td>\n" +
                 "    </tr>\n" +
                 "</table>";
     }
@@ -137,6 +141,7 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
                 "Username: " + ticket.getUsername() + "\n" +
                 "Subject: " + ticket.getSubject() + "\n" +
                 "Description: " + ticket.getProjectOrder() + "\n" +
+                "Priority Level: " + ticket.getPriorityLevel() + "\n" +
                 "Deadline: " + ticket.getDeadline();
     }
 
