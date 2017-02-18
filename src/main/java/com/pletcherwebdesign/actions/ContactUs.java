@@ -7,11 +7,14 @@ import com.pletcherwebdesign.dao.ContactDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Seth on 2/7/2017.
@@ -27,9 +30,10 @@ public class ContactUs extends ActionSupport implements FormRequirements {
     public String execute() {
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         ContactDao contactDao = context.getBean(ContactDao.class);
+        HttpServletRequest request = ServletActionContext.getRequest();
 
         try {
-            if (!isContactFormInputValid(contact)) {
+            if (!isContactFormInputValid(contact, request)) {
                 return ERROR;
             }
             contactDao.insertContactRecordIntoDb(contact);
@@ -44,7 +48,7 @@ public class ContactUs extends ActionSupport implements FormRequirements {
         return SUCCESS;
     }
 
-    private Boolean isContactFormInputValid(Contact contact) {
+    private Boolean isContactFormInputValid(Contact contact, HttpServletRequest request) {
         if (!PletcherWebDesignUtils.isEmailAddressValid(contact.getEmail())) {
             setErrorMessage("<p>The email, " + contact.getEmail() + ", you entered is not a valid email address. " +
                     "Please <a href=\"../contact/contact.jsp\">try again</a>.</p>");
@@ -60,6 +64,10 @@ public class ContactUs extends ActionSupport implements FormRequirements {
         if (contact.getMessage().equals("") || contact.getMessage() == null) {
             setErrorMessage("<p>You did not enter a valid message. " +
                     "Please <a href=\"../contact/contact.jsp\">try again</a>.</p>");
+            return false;
+        }
+        if (!formSubmissionUtils.isCaptchaValid(request)) {
+            setErrorMessage("<p>The captcha was found to be invalid. Please <a href=\"../contact/contact.jsp\">try again</a>.</p>");
             return false;
         }
         return true;

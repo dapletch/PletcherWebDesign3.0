@@ -7,11 +7,14 @@ import com.pletcherwebdesign.dao.SignUpDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Seth on 2/4/2017.
@@ -28,9 +31,10 @@ public class SignUp extends ActionSupport implements FormRequirements {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         SignUpDao signUpDao = context.getBean(SignUpDao.class);
+        HttpServletRequest request = ServletActionContext.getRequest();
 
         try {
-            if (!isSignUpFormInputValid(users)) {
+            if (!isSignUpFormInputValid(users, request)) {
                 return ERROR;
             }
             // Check to see if the user already exists in the database
@@ -55,7 +59,7 @@ public class SignUp extends ActionSupport implements FormRequirements {
         return SUCCESS;
     }
 
-    private Boolean isSignUpFormInputValid(Users users) {
+    private Boolean isSignUpFormInputValid(Users users, HttpServletRequest request) {
         // Email needs to be validated to stop/prevent spam
         if (!PletcherWebDesignUtils.isEmailAddressValid(users.getEmail())) {
             setErrorMessage("<p>The email, " + users.getEmail() + ", you entered is not a valid email address. " +
@@ -82,6 +86,11 @@ public class SignUp extends ActionSupport implements FormRequirements {
             setErrorMessage("<p>The phone number, " + users.getPhoneNumber() + ", you entered is not a valid phone number. " +
                     "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
             logger.error("User phone number is invalid: ", users.getPhoneNumber());
+            return false;
+        }
+        if (!formSubmissionUtils.isCaptchaValid(request)) {
+            setErrorMessage("<p>The captcha you entered was found to be incorrect. Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            logger.error("The captcha entered was found to be incorrect");
             return false;
         }
         return true;

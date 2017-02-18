@@ -7,11 +7,14 @@ import com.pletcherwebdesign.dao.InfoSessionDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Seth on 2/6/2017.
@@ -28,8 +31,9 @@ public class SubmitInfoSession extends ActionSupport implements FormRequirements
 
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         InfoSessionDao infoSessionDao = context.getBean(InfoSessionDao.class);
+        HttpServletRequest request = ServletActionContext.getRequest();
         try {
-            if (!isInfoSessionFormInputValid(infoSession)) {
+            if (!isInfoSessionFormInputValid(infoSession, request)) {
                 return ERROR;
             }
             infoSessionDao.insertInfoSessionRecord(infoSession);
@@ -44,7 +48,7 @@ public class SubmitInfoSession extends ActionSupport implements FormRequirements
         return SUCCESS;
     }
 
-    private Boolean isInfoSessionFormInputValid(InfoSession infoSession) {
+    private Boolean isInfoSessionFormInputValid(InfoSession infoSession, HttpServletRequest request) {
         // Checking the email
         if (!PletcherWebDesignUtils.isEmailAddressValid(infoSession.getEmail())) {
             setErrorMessage("<p>The email, " + infoSession.getEmail() + ", you entered is not a valid email address. " +
@@ -62,6 +66,10 @@ public class SubmitInfoSession extends ActionSupport implements FormRequirements
         // Checking the meeting time to see if the user actually selected one
         if (infoSession.getBestTime() == -1) {
             setErrorMessage("<p>Please select a meeting time and <a href=\"../infosession/infosession.jsp\">try again</a>.</p>");
+            return false;
+        }
+        if (!formSubmissionUtils.isCaptchaValid(request)) {
+            setErrorMessage("<p>The captcha that was entered was found to be invalid. Please <a href=\"../infosession/infosession.jsp\">try again</a>.</p>");
             return false;
         }
         return true;

@@ -82,6 +82,12 @@
             <artifactId>joda-time</artifactId>
             <version>2.9.7</version>
         </dependency>
+        <!-- Dependency for Google's ReCaptcha -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <!-- Utilizing the Spring Framework for it's JDBC Database Properties/Abilities -->
         <dependency>
             <groupId>org.springframework</groupId>

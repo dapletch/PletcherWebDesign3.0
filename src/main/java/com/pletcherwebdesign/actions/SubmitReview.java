@@ -7,11 +7,14 @@ import com.pletcherwebdesign.dao.ReviewDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
 import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
+import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Seth on 2/5/2017.
@@ -27,9 +30,9 @@ public class SubmitReview extends ActionSupport implements FormRequirements {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         ReviewDao reviewDao = context.getBean(ReviewDao.class);
-
+        HttpServletRequest request = ServletActionContext.getRequest();
         try {
-            if (!isReviewFormInputValid(review)) {
+            if (!isReviewFormInputValid(review, request)) {
                 return ERROR;
             }
             reviewDao.insertReview(review);
@@ -44,7 +47,7 @@ public class SubmitReview extends ActionSupport implements FormRequirements {
         return SUCCESS;
     }
 
-    private Boolean isReviewFormInputValid(Review review) {
+    private Boolean isReviewFormInputValid(Review review, HttpServletRequest request) {
         if (!PletcherWebDesignUtils.isEmailAddressValid(review.getEmail())) {
             setErrorMessage("<p>The email, " + review.getEmail() + ", you entered is not a valid email address. " +
                     "Please <a href=\"../review/review.jsp\">try again</a>.</p>");
@@ -56,6 +59,9 @@ public class SubmitReview extends ActionSupport implements FormRequirements {
                     "Please <a href=\"../review/review.jsp\">try again</a>.</p>");
             logger.error("Review phone number is not valid: " + review.getPhoneNumber());
             return false;
+        }
+        if (!formSubmissionUtils.isCaptchaValid(request)) {
+            setErrorMessage("<p>The captcha you entered was found to be invalid. Please <a href=\"../review/review.jsp\">try again</a>.</p>");
         }
         return true;
     }

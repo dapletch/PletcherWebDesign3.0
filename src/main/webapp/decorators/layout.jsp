@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <script src="../jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/recaptcha/api.js"></script>
     <decorator:head/>
 </head>
 

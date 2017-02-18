@@ -43,6 +43,11 @@
                     <textarea class="form-control" rows="5" name="review.comment" id="comment"></textarea>
                 </div>
                 <div class="form-group">
+                    <div class="g-recaptcha"
+                         data-sitekey="6LeYChYUAAAAAKqoDwAuWPBVnV8bHJJCRkpfhJR3">
+                    </div>
+                </div>
+                <div class="form-group">
                     <button type="submit" value="Submit" class="btn-submit btn-default-submit">Submit</button>
                 </div>
             </form>
