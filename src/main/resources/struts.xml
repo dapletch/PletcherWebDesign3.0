@@ -47,5 +47,10 @@
             <result name="success">WEB-INF/admin-login-success.jsp</result>
             <result name="error">WEB-INF/admin-login-success.jsp</result>
         </action>
+        <action name="deleteTicket" class="com.pletcherwebdesign.actions.TicketDelete" method="execute">
+            <result name="input">deleteTicket.action</result>
+            <result name="success">WEB-INF/admin-login-success.jsp</result>
+            <result name="error">WEB-INF/admin-login-success.jsp</result>
+        </action>
     </package>
 </struts>

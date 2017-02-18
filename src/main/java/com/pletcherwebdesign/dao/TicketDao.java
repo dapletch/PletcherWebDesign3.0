@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -42,6 +43,8 @@ public class TicketDao {
     private String selectTicketByIdQuery = "select ticket_id, username, subject, project_order, priority_level, progress, dev_comment, deadline, ticket_date, ticket_open from ticket where ticket_id = ?;";
 
     private String updateTicketInfoQuery = "update ticket set priority_level = ?, progress = ?, project_order = ?, dev_comment = ?, ticket_open = ? where ticket_id = ?;";
+
+    private String deleteTicketQuery = "delete from ticket where ticket_id = ?";
 
     public List<Ticket> selectTicketsForClient(String username) {
         // Need to use the BeanPropertyRowMapper in order to get the ticket_id from the database
@@ -131,5 +134,9 @@ public class TicketDao {
                 , ticket.getDevComment()
                 , ticket.getTicketOpen()
                 , ticket.getTicketId());
+    }
+
+    public void deleteTicketFromDb(Integer ticketId) {
+        jdbcTemplate.update(deleteTicketQuery, ticketId);
     }
 }
