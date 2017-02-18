@@ -5,6 +5,7 @@ import com.pletcherwebdesign.beans.Ticket;
 import com.pletcherwebdesign.beans.UpdateTicketInfo;
 import com.pletcherwebdesign.dao.TicketDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
+import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.TicketUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
@@ -27,22 +28,15 @@ public class TicketUpdate extends ActionSupport implements SessionAware {
     private String username;
     private String errorMessage;
     private Map<String, Object> sessionMap;
-    private List<Ticket> adminTicketList = new ArrayList<>();
     private String adminTickets;
-    private UpdateTicketInfo updateTicketInfo = new UpdateTicketInfo();
+    private FormSubmissionUtils formSubmissionUtils = new FormSubmissionUtils();
 
     private Logger logger = LoggerFactory.getLogger(TicketUpdate.class);
 
     public String execute() {
 
         HttpServletRequest request = ServletActionContext.getRequest();
-        updateTicketInfo.setTicketAdmin(request.getParameter("ticketAdmin"));
-        updateTicketInfo.setTicketId(Integer.parseInt(request.getParameter("ticketId")));
-        updateTicketInfo.setPriorityLevel(request.getParameter("priorityLevel"));
-        updateTicketInfo.setProgress(request.getParameter("progress"));
-        updateTicketInfo.setProjectOrder(request.getParameter("projectOrder"));
-        updateTicketInfo.setDevComment(request.getParameter("devComment"));
-        updateTicketInfo.setTicketOpen(Boolean.valueOf(request.getParameter("ticketOpen")));
+        UpdateTicketInfo updateTicketInfo = getUpdateTicketInfo(request);
 
         ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
         TicketDao ticketDao = context.getBean(TicketDao.class);
@@ -51,7 +45,7 @@ public class TicketUpdate extends ActionSupport implements SessionAware {
             if (sessionMap.containsValue(updateTicketInfo.getTicketAdmin())) {
                 setUsername(updateTicketInfo.getTicketAdmin());
                 ticketDao.updateTicketInfo(updateTicketInfo);
-                setAdminTickets(getTicketsForAdmin());
+                setAdminTickets(formSubmissionUtils.getTicketsForAdmin(updateTicketInfo.getTicketAdmin()));
             } else {
                 setUsername(updateTicketInfo.getTicketAdmin());
                 setErrorMessage("<p>The administrator session has timed out. Please log back in and try again.</p>");
@@ -66,18 +60,23 @@ public class TicketUpdate extends ActionSupport implements SessionAware {
         return SUCCESS;
     }
 
-    private String getTicketsForAdmin() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        TicketDao ticketDao = context.getBean(TicketDao.class);
-        adminTicketList = ticketDao.selectTicketsForAdmin();
-        return TicketUtils.getTicketsForAdmin(adminTicketList, updateTicketInfo.getTicketAdmin());
+    private UpdateTicketInfo getUpdateTicketInfo(HttpServletRequest request) {
+        UpdateTicketInfo updateTicketInfo = new UpdateTicketInfo();
+        updateTicketInfo.setTicketAdmin(request.getParameter("ticketAdmin"));
+        updateTicketInfo.setTicketId(Integer.parseInt(request.getParameter("ticketId")));
+        updateTicketInfo.setPriorityLevel(request.getParameter("priorityLevel"));
+        updateTicketInfo.setProgress(request.getParameter("progress"));
+        updateTicketInfo.setProjectOrder(request.getParameter("projectOrder"));
+        updateTicketInfo.setDevComment(request.getParameter("devComment"));
+        updateTicketInfo.setTicketOpen(Boolean.valueOf(request.getParameter("ticketOpen")));
+        return updateTicketInfo;
     }
 
     public String getAdminTickets() {
         return adminTickets;
     }
 
-    public void setAdminTickets(String adminTickets) {
+    private void setAdminTickets(String adminTickets) {
         this.adminTickets = adminTickets;
     }
 

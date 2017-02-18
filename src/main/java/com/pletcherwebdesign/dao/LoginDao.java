@@ -31,8 +31,6 @@ public class LoginDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //private String selectAdminUserFromDbQuery = "select count(*) from administrator where username = ? and password = ?";
-
     private String selectAdminUserFromDbQuery = "select admin_id, username from administrator where username = ? and password = ?";
 
     private String selectClientUserFromDbQuery= "select usr_id, first_name, last_name, email, username" +

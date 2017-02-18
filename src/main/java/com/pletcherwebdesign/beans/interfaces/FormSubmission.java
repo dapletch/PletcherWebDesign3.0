@@ -7,11 +7,11 @@ import com.pletcherwebdesign.email.beans.MessageBody;
  */
 public interface FormSubmission {
 
-    public String formError();
+    void sendNotificationEmail(String formSubmission, String emailMessage);
 
-    public void sendNotificationEmail();
+    MessageBody getMessageBodyForm(String formSubmission, String emailMessage);
 
-    public MessageBody getMessageBodyForm();
+    String getTicketsForAdmin(String adminUsername);
 
-    public String emailMessage();
+    String getTicketListForClient(String clientUsername);
 }

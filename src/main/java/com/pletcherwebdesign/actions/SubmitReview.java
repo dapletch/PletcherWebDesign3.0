@@ -1,14 +1,11 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.interfaces.FormSubmission;
+import com.pletcherwebdesign.beans.interfaces.FormRequirements;
 import com.pletcherwebdesign.beans.Review;
 import com.pletcherwebdesign.dao.ReviewDao;
-import com.pletcherwebdesign.email.beans.MessageBody;
-import com.pletcherwebdesign.email.dao.EmailFormDao;
-import com.pletcherwebdesign.email.sendemail.EmailConfig;
-import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
+import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +16,10 @@ import org.springframework.dao.DataAccessException;
 /**
  * Created by Seth on 2/5/2017.
  */
-public class SubmitReview extends ActionSupport implements FormSubmission {
+public class SubmitReview extends ActionSupport implements FormRequirements {
 
     private Review review = new Review();
+    private FormSubmissionUtils formSubmissionUtils = new FormSubmissionUtils();
     private String errorMessage;
     private Logger logger = LoggerFactory.getLogger(SubmitReview.class);
 
@@ -35,7 +33,7 @@ public class SubmitReview extends ActionSupport implements FormSubmission {
                 return ERROR;
             }
             reviewDao.insertReview(review);
-            sendNotificationEmail();
+            formSubmissionUtils.sendNotificationEmail("review", emailMessage());
         } catch (DataAccessException e) {
             logger.error("There was a problem submitting the review: \n", e);
             setErrorMessage("<p>There was a problem submitting your review. " +
@@ -88,19 +86,6 @@ public class SubmitReview extends ActionSupport implements FormSubmission {
                 "        <td>" + review.getComment() + "</td>\n" +
                 "    </tr>\n" +
                 "</table>";
-    }
-
-    public void sendNotificationEmail() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
-        SendEmail sendEmail = context.getBean(SendEmail.class);
-        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
-    }
-
-    public MessageBody getMessageBodyForm() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
-        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("review");
-        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
     }
 
     public String emailMessage() {

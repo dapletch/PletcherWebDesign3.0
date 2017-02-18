@@ -49,7 +49,7 @@
                 <li><a href="../infosession/infosession.jsp">Informational Session</a></li>
                 <li><a href="../contact/contact.jsp">Contact Us</a></li>
             </ul>
-            <form method="post" action="login.action" class="navbar-form navbar-right" role="form">
+            <form method="post" action="../../login.action" class="navbar-form navbar-right" role="form">
                 <div class="form-group">
                     <input type="text" class="form-control" name="login.username" placeholder="Username">
                 </div>

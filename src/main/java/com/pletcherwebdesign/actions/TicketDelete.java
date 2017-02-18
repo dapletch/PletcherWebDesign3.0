@@ -1,10 +1,9 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.Ticket;
 import com.pletcherwebdesign.dao.TicketDao;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
-import com.pletcherwebdesign.utils.TicketUtils;
+import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import org.apache.struts2.interceptor.SessionAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,7 +23,7 @@ public class TicketDelete extends ActionSupport implements SessionAware {
     private String errorMessage;
     private String adminTickets;
     private Map<String, Object> sessionMap;
-    private List<Ticket> adminTicketList = new ArrayList<>();
+    private FormSubmissionUtils formSubmissionUtils = new FormSubmissionUtils();
     private Logger logger = LoggerFactory.getLogger(TicketDelete.class);
 
     public String execute() {
@@ -37,7 +34,7 @@ public class TicketDelete extends ActionSupport implements SessionAware {
             if (sessionMap.containsValue(username)) {
                 ticketDao.deleteTicketFromDb(ticketId);
                 setUsername(username);
-                setAdminTickets(getTicketsForAdmin());
+                setAdminTickets(formSubmissionUtils.getTicketsForAdmin(username));
             } else {
                 setUsername(username);
                 setErrorMessage("<p>The administrator session has timed out. Please log back in and try again.</p>");
@@ -48,13 +45,6 @@ public class TicketDelete extends ActionSupport implements SessionAware {
             return ERROR;
         }
         return SUCCESS;
-    }
-
-    private String getTicketsForAdmin() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        TicketDao ticketDao = context.getBean(TicketDao.class);
-        adminTicketList = ticketDao.selectTicketsForAdmin();
-        return TicketUtils.getTicketsForAdmin(adminTicketList, username);
     }
 
     public void setSession(Map<String, Object> sessionMap) {
@@ -93,7 +83,7 @@ public class TicketDelete extends ActionSupport implements SessionAware {
         return adminTickets;
     }
 
-    public void setAdminTickets(String adminTickets) {
+    private void setAdminTickets(String adminTickets) {
         this.adminTickets = adminTickets;
     }
 }

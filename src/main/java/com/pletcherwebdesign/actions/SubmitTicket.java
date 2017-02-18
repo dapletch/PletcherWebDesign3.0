@@ -1,16 +1,11 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.interfaces.FormSubmission;
+import com.pletcherwebdesign.beans.interfaces.FormRequirements;
 import com.pletcherwebdesign.beans.Ticket;
 import com.pletcherwebdesign.dao.TicketDao;
-import com.pletcherwebdesign.email.beans.MessageBody;
-import com.pletcherwebdesign.email.dao.EmailFormDao;
-import com.pletcherwebdesign.email.sendemail.EmailConfig;
-import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
-import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
-import com.pletcherwebdesign.utils.TicketUtils;
+import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import org.apache.struts2.interceptor.SessionAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,22 +13,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DataAccessException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 
 /**
  * Created by Seth on 2/9/2017.
  */
-public class SubmitTicket extends ActionSupport implements FormSubmission, SessionAware {
+public class SubmitTicket extends ActionSupport implements FormRequirements, SessionAware {
 
     private Ticket ticket = new Ticket();
     private Map<String, Object> sessionMap;
     private String username;
     private String errorMessage;
     private String userTickets;
-    private List<Ticket> clientTicketList = new ArrayList<>();
+    private FormSubmissionUtils formSubmissionUtils = new FormSubmissionUtils();
 
     private Logger logger = LoggerFactory.getLogger(SubmitTicket.class);
 
@@ -46,21 +39,14 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
                 return ERROR;
             }
             ticketDao.insertTicketIntoDb(ticket);
-            setUserTickets(getTicketListForClient(ticket.getUsername()));
-            sendNotificationEmail();
+            setUserTickets(formSubmissionUtils.getTicketListForClient(ticket.getUsername()));
+            formSubmissionUtils.sendNotificationEmail("ticket", emailMessage());
         } catch (DataAccessException e) {
             logger.error("The ticket submission was invalid: " + ticket.toString());
             setErrorMessage("<p>There was a problem submitting your ticket. Please try again.</p>");
             return ERROR;
         }
         return SUCCESS;
-    }
-
-    private String getTicketListForClient(String username) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        TicketDao ticketDao = context.getBean(TicketDao.class);
-        clientTicketList = ticketDao.selectTicketsForClient(username);
-        return TicketUtils.getTicketsClientToSee(clientTicketList);
     }
 
     private Boolean isUserLoggedInSession(String username) {
@@ -123,19 +109,6 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
                 "</table>";
     }
 
-    public void sendNotificationEmail() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
-        SendEmail sendEmail = context.getBean(SendEmail.class);
-        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
-    }
-
-    public MessageBody getMessageBodyForm() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
-        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("ticket");
-        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
-    }
-
     public String emailMessage() {
         return "The following user has just submitted a ticket through Pletcher Web Design: \n" +
                 "Username: " + ticket.getUsername() + "\n" +
@@ -173,7 +146,7 @@ public class SubmitTicket extends ActionSupport implements FormSubmission, Sessi
         return userTickets;
     }
 
-    public void setUserTickets(String userTickets) {
+    private void setUserTickets(String userTickets) {
         this.userTickets = userTickets;
     }
 

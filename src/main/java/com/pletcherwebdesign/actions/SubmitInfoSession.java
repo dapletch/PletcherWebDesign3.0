@@ -1,14 +1,11 @@
 package com.pletcherwebdesign.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pletcherwebdesign.beans.interfaces.FormSubmission;
+import com.pletcherwebdesign.beans.interfaces.FormRequirements;
 import com.pletcherwebdesign.beans.InfoSession;
 import com.pletcherwebdesign.dao.InfoSessionDao;
-import com.pletcherwebdesign.email.beans.MessageBody;
-import com.pletcherwebdesign.email.dao.EmailFormDao;
-import com.pletcherwebdesign.email.sendemail.EmailConfig;
-import com.pletcherwebdesign.email.sendemail.SendEmail;
 import com.pletcherwebdesign.jdbcproperties.JdbcConfiguration;
+import com.pletcherwebdesign.utils.FormSubmissionUtils;
 import com.pletcherwebdesign.utils.PletcherWebDesignUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +16,10 @@ import org.springframework.dao.DataAccessException;
 /**
  * Created by Seth on 2/6/2017.
  */
-public class SubmitInfoSession extends ActionSupport implements FormSubmission {
+public class SubmitInfoSession extends ActionSupport implements FormRequirements {
 
     private InfoSession infoSession = new InfoSession();
+    private FormSubmissionUtils formSubmissionUtils = new FormSubmissionUtils();
     private String errorMessage;
 
     private Logger logger = LoggerFactory.getLogger(SubmitInfoSession.class);
@@ -35,7 +33,7 @@ public class SubmitInfoSession extends ActionSupport implements FormSubmission {
                 return ERROR;
             }
             infoSessionDao.insertInfoSessionRecord(infoSession);
-            sendNotificationEmail();
+            formSubmissionUtils.sendNotificationEmail("infosession", emailMessage());
         } catch (DataAccessException e) {
             logger.error("There was a problem submitting the info session record: \n" + e);
             setErrorMessage("<p>There was a problem submitting your request for an informational session. " +
@@ -99,19 +97,6 @@ public class SubmitInfoSession extends ActionSupport implements FormSubmission {
                 "        <td>" + infoSession.getDescription() + "</td>\n" +
                 "    </tr>\n" +
                 "</table>";
-    }
-
-    public void sendNotificationEmail() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(EmailConfig.class);
-        SendEmail sendEmail = context.getBean(SendEmail.class);
-        sendEmail.sendEmailNoAttachment(getMessageBodyForm());
-    }
-
-    public MessageBody getMessageBodyForm() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
-        EmailFormDao emailFormDao = context.getBean(EmailFormDao.class);
-        MessageBody messageBody = emailFormDao.getHtmlFormInfoForEmail("infosession");
-        return PletcherWebDesignUtils.setMessageBodyNoAttachment(messageBody, emailMessage());
     }
 
     public String emailMessage() {
