@@ -37,5 +37,15 @@
             <result name="success">WEB-INF/client-login-success.jsp</result>
             <result name="error">WEB-INF/client-login-success.jsp</result>
         </action>
+        <action name="selectTicketForUpdate" class="com.pletcherwebdesign.actions.SelectTicketForUpdate" method="execute">
+            <result name="input">selectTicketForUpdate.action</result>
+            <result name="success">WEB-INF/ticket-update.jsp</result>
+            <result name="error">WEB-INF/admin-login-success.jsp</result>
+        </action>
+        <action name="updateTicket" class="com.pletcherwebdesign.actions.TicketUpdate" method="execute">
+            <result name="input">updateTicket.action</result>
+            <result name="success">WEB-INF/admin-login-success.jsp</result>
+            <result name="error">WEB-INF/admin-login-success.jsp</result>
+        </action>
     </package>
 </struts>

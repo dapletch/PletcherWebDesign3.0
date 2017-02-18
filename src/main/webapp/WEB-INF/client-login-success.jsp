@@ -40,25 +40,25 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Routine Maintenance</td>
+                    <th>Routine Maintenance</th>
                     <td>Maintenance in the form of adding or removing content from said website, or just upgrading the
                         server the web application is currently on.
                     </td>
                 </tr>
                 <tr>
-                    <td>High</td>
+                    <th>High</th>
                     <td>The website has either come offline, or is inaccessible from public viewing. A feature that was
                         once working is no longer functioning properly. The business will lose revenue or credibility.
                     </td>
                 </tr>
                 <tr>
-                    <td>Medium</td>
+                    <th>Medium</th>
                     <td>There is some new functionality that should be added due to the business model changing. The
                         problem is not critical, but the problem needs to be handled eventually.
                     </td>
                 </tr>
                 <tr>
-                    <td>Low</td>
+                    <th>Low</th>
                     <td>A new feature needs to be added, but is not critical to the business. Something that is just
                         nice to have.
                     </td>

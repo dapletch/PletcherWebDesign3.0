@@ -33,12 +33,14 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
     private Admin admin = new Admin();
     private String errorMessage;
     private String userTickets;
+    private String adminTickets;
     private String clientUserId;
     private String adminUserId;
     private Boolean sessionStatus;
     private String username;
     private Map<String, Object> sessionMap;
     private List<Ticket> clientTicketList = new ArrayList<>();
+    private List<Ticket> adminTicketList = new ArrayList<>();
 
     private Logger logger = LoggerFactory.getLogger(LoginIntoSite.class);
 
@@ -64,6 +66,7 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
                     // if someone logs in when I'm not accessing the admin page I'll know it.
                     sessionMap.put(getAdminUserId(), login.getUsername());
                     sendNotificationEmail();
+                    setAdminTickets(getTicketsForAdmin());
                     return ADMIN_LOGIN;
                 }
                 if (getUser() != null) {
@@ -93,6 +96,13 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
         TicketDao ticketDao = context.getBean(TicketDao.class);
         clientTicketList = ticketDao.selectTicketsForClient(username);
         return TicketUtils.getTicketsClientToSee(clientTicketList);
+    }
+
+    private String getTicketsForAdmin() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        TicketDao ticketDao = context.getBean(TicketDao.class);
+        adminTicketList = ticketDao.selectTicketsForAdmin();
+        return TicketUtils.getTicketsForAdmin(adminTicketList, getUsername());
     }
 
     private void checkSessionKeysSetDefault(Users user, Admin admin) {
@@ -174,8 +184,16 @@ public class LoginIntoSite extends ActionSupport implements FormSubmission, Sess
         return userTickets;
     }
 
-    public void setUserTickets(String userTickets) {
+    private void setUserTickets(String userTickets) {
         this.userTickets = userTickets;
+    }
+
+    public String getAdminTickets() {
+        return adminTickets;
+    }
+
+    private void setAdminTickets(String adminTickets) {
+        this.adminTickets = adminTickets;
     }
 
     private String getClientUserId() {

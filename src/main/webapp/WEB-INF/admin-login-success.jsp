@@ -14,7 +14,12 @@
 <body>
 
 <c:set var="userName" value="${username}" />
+<c:set var="error" value="${errorMessage}"/>
+<c:set var="admnTickets" value="${adminTickets}"/>
 <h1>Welcome to the Admin Page, <c:out value="${userName}" /></h1>
+
+<c:out value="${error}" escapeXml="false"/>
+<c:out value="${admnTickets}" escapeXml="false"/>
 
 </body>
 </html>

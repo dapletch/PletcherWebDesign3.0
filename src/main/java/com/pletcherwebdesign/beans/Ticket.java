@@ -8,6 +8,7 @@ import org.joda.time.DateTime;
 public class Ticket {
 
     private Integer ticketId;
+    private String ticketAdmin;
     private String username;
     private String subject;
     private String projectOrder;
@@ -16,6 +17,7 @@ public class Ticket {
     private String devComment;
     private String deadline;
     private DateTime ticketDate;
+    private Boolean ticketOpen;
 
     public Ticket() {
         super();
@@ -31,7 +33,7 @@ public class Ticket {
         this.deadline = deadline;
     }
 
-    public Ticket(Integer ticketId, String username, String subject, String projectOrder, String priorityLevel, String progress, String devComment, String deadline, DateTime ticketDate) {
+    public Ticket(Integer ticketId, String username, String subject, String projectOrder, String priorityLevel, String progress, String devComment, String deadline, DateTime ticketDate, Boolean ticketOpen) {
         this.ticketId = ticketId;
         this.username = username;
         this.subject = subject;
@@ -41,6 +43,7 @@ public class Ticket {
         this.devComment = devComment;
         this.deadline = deadline;
         this.ticketDate = ticketDate;
+        this.ticketOpen = ticketOpen;
     }
 
     public Integer getTicketId() {
@@ -57,6 +60,15 @@ public class Ticket {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    // Only for use while administrating tickets
+    public String getTicketAdmin() {
+        return ticketAdmin;
+    }
+
+    public void setTicketAdmin(String ticketAdmin) {
+        this.ticketAdmin = ticketAdmin;
     }
 
     public String getSubject() {
@@ -113,6 +125,14 @@ public class Ticket {
 
     public void setTicketDate(DateTime ticketDate) {
         this.ticketDate = ticketDate;
+    }
+
+    public Boolean getTicketOpen() {
+        return ticketOpen;
+    }
+
+    public void setTicketOpen(Boolean ticketOpen) {
+        this.ticketOpen = ticketOpen;
     }
 
     @Override
