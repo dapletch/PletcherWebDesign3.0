@@ -13,6 +13,7 @@
     <script src="../js/formvalidation/validateFormUtils.js"></script>
     <script src="../js/formvalidation/validateSignUp.js"></script>
     <script src="../js/formvalidation/validateReview.js"></script>
+    <script src="../js/formvalidation/validateInfoSession.js"></script>
     <decorator:head/>
 </head>
 

@@ -20,7 +20,8 @@
             <p>All fields must be filled out in order, for the form to submit.</p>
         </div>
         <div class="col-xs-8">
-            <form method="post" action="infoSession.action">
+            <form name="infoSessionForm" method="post" action="infoSession.action" onsubmit="return validateInfoSessionForm()">
+                <div id="infoSessionError"></div>
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" placeholder="First Name" name="infoSession.firstName"
@@ -36,7 +37,7 @@
                     <input type="email" class="form-control" placeholder="Email" name="infoSession.email" id="email">
                 </div>
                 <div class="form-group">
-                    <label for="phoneNumber">Phone Number:</label>
+                    <label for="phoneNumber">Phone Number (###-###-####):</label>
                     <input type="text" class="form-control" placeholder="Phone Number" name="infoSession.phoneNumber"
                            id="phoneNumber">
                 </div>
