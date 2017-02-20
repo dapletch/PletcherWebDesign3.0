@@ -14,6 +14,7 @@
     <script src="../js/formvalidation/validateSignUp.js"></script>
     <script src="../js/formvalidation/validateReview.js"></script>
     <script src="../js/formvalidation/validateInfoSession.js"></script>
+    <script src="../js/formvalidation/validateContact.js"></script>
     <decorator:head/>
 </head>
 

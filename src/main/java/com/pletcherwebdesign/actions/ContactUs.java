@@ -56,7 +56,7 @@ public class ContactUs extends ActionSupport implements FormRequirements {
             return false;
         }
         if (contact.getName().equals("") || contact.getName() == null) {
-            setErrorMessage("<p>The name, " + contact.getName() + ", you entered is not a valid name. " +
+            setErrorMessage("<p>You failed to enter a valid name. " +
                     "Please <a href=\"../contact/contact.jsp\">try again</a>.</p>");
             logger.error("Name is not valid: " + contact.getName());
             return false;

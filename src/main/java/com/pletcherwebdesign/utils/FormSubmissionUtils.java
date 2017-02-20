@@ -31,7 +31,7 @@ import java.util.List;
 public class FormSubmissionUtils implements FormSubmission {
 
     public static final String url = "https://www.google.com/recaptcha/api/siteverify";
-    public static final String secret = "6LeYChYUAAAAAGfsrTacgenTUpF0K-jJ42O2Om6V";
+    private static final String secret = "6LeYChYUAAAAAGfsrTacgenTUpF0K-jJ42O2Om6V";
     private String captchaResponse = null;
     private Logger logger = LoggerFactory.getLogger(FormSubmissionUtils.class);
 

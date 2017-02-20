@@ -20,7 +20,8 @@
                 that you may have. Just fill out the form and we will contact you shortly.</p>
         </div>
         <div class="col-xs-8">
-            <form method="post" action="contact.action">
+            <form name="contactForm" method="post" action="contact.action" onsubmit="return validateContactForm()">
+                <div id="contactError"></div>
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" placeholder="Name" name="contact.name"
