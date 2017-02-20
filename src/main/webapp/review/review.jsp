@@ -13,12 +13,12 @@
 <body>
 <h1>Leave a Review</h1>
 <p>Please leave your comment below to tell us how we did.</p>
-<p>All fields must be filled out in order, for the form to submit.</p>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8">
-            <form method="post" action="review.action">
+            <form name="reviewForm" method="post" action="review.action" onsubmit="return validateReviewForm()">
+                <div id="reviewError"></div>
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" placeholder="First Name" name="review.firstName"

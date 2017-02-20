@@ -62,6 +62,7 @@ public class SubmitReview extends ActionSupport implements FormRequirements {
         }
         if (!formSubmissionUtils.isCaptchaValid(request)) {
             setErrorMessage("<p>The captcha you entered was found to be invalid. Please <a href=\"../review/review.jsp\">try again</a>.</p>");
+            return false;
         }
         return true;
     }

@@ -12,6 +12,7 @@
     <script src="../js/recaptcha/api.js"></script>
     <script src="../js/formvalidation/validateFormUtils.js"></script>
     <script src="../js/formvalidation/validateSignUp.js"></script>
+    <script src="../js/formvalidation/validateReview.js"></script>
     <decorator:head/>
 </head>
 
