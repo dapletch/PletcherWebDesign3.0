@@ -22,7 +22,8 @@
 
 <p>All fields must be filled out, for the form to submit.</p>
 
-<form method="post" action="users.action">
+<form name="signUpForm" method="post" action="users.action" onsubmit="return validateSignUpForm()">
+    <div id="signUpError"></div>
     <div class="form-group">
         <label for="firstName">First Name:</label>
         <input type="text" class="form-control" placeholder="First Name" name="users.firstName" id="firstName">
@@ -119,7 +120,7 @@
         <input type="text" class="form-control" placeholder="Zip Code" name="users.zipCode" id="zipCode">
     </div>
     <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
+        <label for="phoneNumber">Phone Number (###-###-####):</label>
         <input type="text" class="form-control" placeholder="Phone Number" name="users.phoneNumber" id="phoneNumber">
     </div>
     <div class="form-group">

@@ -74,6 +74,16 @@ public class SignUp extends ActionSupport implements FormRequirements {
             logger.error("User attempted to create admin account: " + users.getUsername());
             return false;
         }
+        if (users.getPassword().equals("") || users.getPassword() == null) {
+            setErrorMessage("<p>You must enter a password. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            return false;
+        }
+        if (users.getCheckPassword().equals("") || users.getCheckPassword() == null) {
+            setErrorMessage("<p>You must validate your password. " +
+                    "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+            return false;
+        }
         // Check if passwords entered match
         if (!users.getPassword().equals(users.getCheckPassword())) {
             setErrorMessage("<p>The passwords you entered do not match. " +

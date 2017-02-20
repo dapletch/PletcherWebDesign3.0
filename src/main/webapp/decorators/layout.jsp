@@ -10,6 +10,8 @@
     <script src="../jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/recaptcha/api.js"></script>
+    <script src="../js/formvalidation/validateFormUtils.js"></script>
+    <script src="../js/formvalidation/validateSignUp.js"></script>
     <decorator:head/>
 </head>
 
