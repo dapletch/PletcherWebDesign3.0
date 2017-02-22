@@ -12,8 +12,7 @@
 </head>
 <body>
 <h1>Java Log Parsing Analytics Application</h1>
-<img src="../images/log_parse_2.PNG" width="555px" height="310px" align="right" class="log_parse"
-     style="padding-left: 15px; padding-bottom: 2px;"/>
+<img src="../images/log_parse_2.PNG" class="img-responsive img-padding-left" width="555" height="310" align="right"/>
 <p>Part of being a successful web developer is understanding web analytics. I was assigned this assignment, as a tool to
     better understanding HashMaps and ArrayLists. The original requirements for this assignment are listed as
     follows:</p>

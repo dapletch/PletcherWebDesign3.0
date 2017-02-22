@@ -49,6 +49,7 @@ public class TicketUtils {
                 "<thead>\n" +
                 "<tr>\n" +
                 "<th>ID</th>\n" +
+                "<th>Username</th>\n" +
                 "<th>Subject</th>\n" +
                 "<th>Description</th>\n" +
                 "<th>Priority Level</th>\n" +
@@ -65,6 +66,7 @@ public class TicketUtils {
         for (Ticket ticket : adminTicketList) {
             sb.append("<tr>");
             sb.append("<td>").append(ticket.getTicketId()).append("</td>\n");
+            sb.append("<td>").append(ticket.getUsername()).append("</td>\n");
             sb.append("<td>").append(ticket.getSubject()).append("</td>\n");
             sb.append("<td>").append(ticket.getProjectOrder()).append("</td>\n");
             sb.append("<td>").append(ticket.getPriorityLevel()).append("</td>\n");
@@ -77,14 +79,14 @@ public class TicketUtils {
                     "<form method=\"post\" action=\"selectTicketForUpdate.action\">\n" +
                     "<input type=\"hidden\" name=\"ticketId\" value=\"").append(ticket.getTicketId()).append("\"/>\n" +
                     "<input type=\"hidden\" name=\"username\" value=\"").append(adminUserName).append("\"/>\n" +
-                    "<input type=\"submit\" value=\"Update\" class=\"btn-submit\"/>\n" +
+                    "<input type=\"submit\" value=\"Update\" class=\"btn-submit btn-default-green\"/>\n" +
                     "</form>\n" +
                     "</td>\n");
             sb.append("<td>" +
                     "<form method=\"post\" action=\"deleteTicket.action\">\n" +
                     "<input type=\"hidden\" name=\"ticketId\" value=\"").append(ticket.getTicketId()).append("\"/>\n" +
                     "<input type=\"hidden\" name=\"username\" value=\"").append(adminUserName).append("\"/>\n" +
-                    "<input type=\"submit\" value=\"Delete\" class=\"btn-submit\"/>\n" +
+                    "<input type=\"submit\" value=\"Delete\" class=\"btn-submit btn-default-green\"/>\n" +
                     "</form>\n" +
                     "</td>\n");
             sb.append("</tr>");

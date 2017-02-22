@@ -12,8 +12,7 @@
 </head>
 <body>
 <h1>Skin &amp; Tonic Mobile App</h1>
-<img src="../images/skin_and_tonic_mobile_app_2.png" width="433px" height="243px" align="left"
-     style="padding-right: 15px; padding-bottom: 2px;"/>
+<img src="../images/skin_and_tonic_mobile_app_2.png" class="img-responsive img-padding-right" width="433" height="243" align="left"/>
 <p>This is a basic prototype that I created for the Mobile Apps Class at Castleton State College. I created the app to
     be cross platform. The IDE that I used was Intel XDK. The IDE also integreated one of my other favorite IDE's,
     Brackets, to be able to perform the actual coding. Intel XDK, also offered a user friendly Graphical User Interface

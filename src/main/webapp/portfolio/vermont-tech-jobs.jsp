@@ -13,14 +13,12 @@
 <body>
 
 <h1>Vermont Tech Jobs</h1>
-<img src="../images/vermont_tech_jobs_1.png" width=289 height=162 align="left"
-     style="padding-right: 15px; padding-bottom: 2px;"/>
+<img src="../images/vermont_tech_jobs_1.png" class="img-responsive img-padding-right" width="289" height="162" align="left" alt="Vermont Tech Jobs 1"/>
 <p>I helped with the creation of this website along with my team using a combination of the Agile, and PMBOK
     methodologies. We used a combination of Sublime Text, and Brackets IDE's to be able to code and implement the
     website. We created the website using two week iterations. We were required to record our progress through the use
     of GANTT, and Burn Down Charts. Keeping track of our progess was critical to the success of the project.</p>
-<img src="../images/vermont_tech_jobs_2.png" width=289 height=162 align="right" alt="wordpress"
-     style="padding-left: 15px; padding-bottom: 2px;">
+<img src="../images/vermont_tech_jobs_2.png" class="img-responsive img-padding-left" width="289" height="162" align="right" alt="Vermont Tech Jobs 2">
 <p>Our group then decided to divide ourselves, in accordance to our skill sets. Two of the members were experienced with
     databases, and the other two, including myself were responsible for the creation of the actual site itself. We
     originally attempted to import an HTML template into Open Classifieds, a free open source Ad Management System, with

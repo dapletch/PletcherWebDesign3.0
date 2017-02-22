@@ -20,7 +20,7 @@
 <table class="table table-borderless">
     <thead>
     <tr>
-        <th>Ticket Priority:</th>
+        <th>Ticket Priority</th>
         <th>Ticket Priority Description</th>
     </tr>
     </thead>

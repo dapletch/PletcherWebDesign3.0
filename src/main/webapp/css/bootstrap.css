@@ -73,6 +73,8 @@ dfn {
 h1 {
     margin: .67em 0;
     font-size: 2em;
+    color: #003300;
+    font-weight: 900;
 }
 
 mark {
@@ -1422,7 +1424,8 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #e4f4cd;
 }
 
 input,
@@ -1537,9 +1540,11 @@ h6,
 .h5,
 .h6 {
     font-family: inherit;
-    font-weight: 500;
+    /* font-weight: 500; */
+    font-weight: 900;
     line-height: 1.1;
-    color: inherit;
+    /* color: inherit; */
+    color: #003300;
 }
 
 h1 small,
@@ -2909,6 +2914,7 @@ caption {
 
 th {
     text-align: left;
+    color: #003300;
 }
 
 .table {
@@ -3915,6 +3921,12 @@ fieldset[disabled] a.btn {
     margin-left: 45%;
 }
 
+.btn-default-green {
+    color: #fff;
+    background-color: #003300;
+    border-color: #004F00;
+}
+
 .btn-default:focus,
 .btn-default.focus {
     color: #333;
@@ -4489,7 +4501,8 @@ tbody.collapse.in {
 .dropdown-menu > li > a:focus {
     color: #262626;
     text-decoration: none;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
+    background-color: #6fdc6f;
 }
 
 .dropdown-menu > .active > a,
@@ -6558,19 +6571,22 @@ a.thumbnail.active {
 
 a.list-group-item,
 button.list-group-item {
-    color: #555;
+    /* color: #555; */
+    color: #fff;
 }
 
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
-    color: #333;
+    /* color: #333; */
+    color: #fff;
 }
 
 a.list-group-item:hover,
 button.list-group-item:hover,
 a.list-group-item:focus,
 button.list-group-item:focus {
-    color: #555;
+    /* color: #555; */
+    color: #fff;
     text-decoration: none;
     background-color: #006400;
 }
@@ -8383,4 +8399,87 @@ b {
     color: #fff;
     background-color: #008000;
     text-decoration: none;
+}
+
+/* Custom CSS for side navigation */
+.just-padding {
+    padding: 15px;
+}
+
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+    /* padding-left: 30px; */
+    padding-left: 15px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 45px;
+}
+
+.list-group-item .glyphicon {
+    margin-right: 5px;
+}
+
+/* Custom CSS for the Google Search Box, CSS conflict with Bootstrap */
+.gsc-control-cse .gsc-table-result {
+    font-family : inherit;
+}
+
+.gsc-control-cse .gsc-input-box {
+    height : inherit;
+}
+
+.gsc-control-cse {
+    font-family: Arial, sans-serif;
+    border-color: #e4f4cd !important;
+    background-color: #e4f4cd !important;
+}
+
+input.gsc-input,
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-input-box-focus,
+.gsc-search-button, input.gsc-search-button-v2 {
+    box-sizing  : content-box;
+    line-height : normal;
+    margin-top  : 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input.gsc-input-box {
+    height: 35px;
+}
+
+.cse input.gsc-input, input.gsc-input{
+    background-image:none !important;
+}
+
+/* Custom CSS for image alignment */
+.img-padding-right {
+    padding-right: 15px;
+    padding-bottom: 2px;
+}
+
+.img-padding-left {
+    padding-left: 15px;
+    padding-bottom: 2px;
 }

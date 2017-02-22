@@ -17,9 +17,10 @@
             <h1>System Analsis &amp; Design</h1>
         </div>
         <div class="col-xs-8">
-            <img src="images/SDLC-Maintenance-Highlighted.png" alt="system_analysis_and_design" height="230px"
-                 width="230px"
-                 align="left" style="padding-right: 15px; padding-bottom: 2px;">
+            <img src="images/SDLC-Maintenance-Highlighted.png" class="img-responsive img-padding-right"
+                 alt="System Analysis & Design" height="230"
+                 width="230"
+                 align="left">
             <p>When you think about it almost anything can be thought about as a system. The term system is broad and
                 general term,
                 so how do we define it then? The true definition of a system is a set of interdependent components
@@ -60,8 +61,8 @@
                 its
                 function.</p>
             <h2 id="Design">Design</h2>
-            <img src="images/home_page.png" width="218px" height="223px" name="image_name" align="left"
-                 style="padding-right: 15px; padding-bottom: 2px;"
+            <img src="images/home_page.png" class="img-responsive img-padding-right" width="218" height="223"
+                 name="image_name" align="left" alt="Wire Frame"
                  onmouseover="image_name.width='419';image_name.height='429';"
                  onmouseout="image_name.width='218';image_name.height='223';"/>
             <p>The design phase comes after a solid understanding of customer's requirements, this phase defines the
@@ -88,10 +89,9 @@
                 be
                 deployed
                 and installed on the server along with being attached to the desired domain name.</p>
-            <p><img src="images/cpanel.jpg" alt="cpanel" height="84px" width="177px" align="left"
-                    style="padding-right: 15px; padding-bottom: 2px;">Training may be required for end users to make
-                sure
-                they know
+            <p><img src="images/cpanel_logo.png" class="img-responsive img-padding-right" alt="cpanel" height="84"
+                    width="177" align="left">
+                Training may be required for end users to make sure they know
                 how to the system and to get familiar with it, the implementation phase may take a some time, but that
                 depends on
                 the complexity of the system and the solution it presents. It is by taking these basic design

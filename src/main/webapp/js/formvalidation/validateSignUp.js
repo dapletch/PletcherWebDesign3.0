@@ -5,7 +5,7 @@ function validateSignUpForm() {
 
     // Creating the signUp object from the form inputs
     var signUp = {
-        fistName: document.forms["signUpForm"]["users.firstName"].value,
+        firstName: document.forms["signUpForm"]["users.firstName"].value,
         lastName: document.forms["signUpForm"]["users.lastName"].value,
         email: document.forms["signUpForm"]["users.email"].value,
         username: document.forms["signUpForm"]["users.username"].value,

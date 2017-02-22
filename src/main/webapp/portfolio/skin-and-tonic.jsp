@@ -12,8 +12,7 @@
 </head>
 <body>
 <h1>Skin &amp; Tonic</h1>
-<img src="../images/skin_and_tonic_1.png" width="433px" height="243px" align="left"
-     style="padding-right: 15px; padding-bottom: 2px;"/>
+<img src="../images/skin_and_tonic_1.png" class="img-responsive img-padding-right" width="433" height="243" align="left"/>
 <p>I worked for a small start up company, by the name of Skin and Tonic. Skin and Tonic is owned and operated by,
     Charlene Palfey. Skin and Tonic sells homemade homeopathic skin care products that are derived from ingredients that
     she personally grows in her back yard. She enlisted my services to help her in the creation of a WordPress website.
