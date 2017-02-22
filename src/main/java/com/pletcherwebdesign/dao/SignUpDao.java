@@ -25,12 +25,20 @@ public class SignUpDao {
             "where username = ? " +
             "and email = ?;";
 
+    private String checkIfEmailUsed = "select count(*) from users where email = ?;";
+
     private String insertIntoUsers = "insert into users (first_name, last_name, email, username, password" +
             ", check_password, street_address, city, st, zip, phone) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     public Boolean isUserAlreadyInDb(Users user) {
         Integer userInt = jdbcTemplate.queryForObject(checkIfUserExists, Integer.class
                 , user.getUsername(), user.getEmail());
+        return userInt == 1;
+    }
+
+    public Boolean isEmailAlreadyUsed(Users user) {
+        Integer userInt = jdbcTemplate.queryForObject(checkIfEmailUsed, Integer.class
+                , user.getEmail());
         return userInt == 1;
     }
 

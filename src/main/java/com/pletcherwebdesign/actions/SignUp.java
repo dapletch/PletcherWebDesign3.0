@@ -37,6 +37,12 @@ public class SignUp extends ActionSupport implements FormRequirements {
             if (!isSignUpFormInputValid(users, request)) {
                 return ERROR;
             }
+            // Check to see if the email address has already been taken
+            if (signUpDao.isEmailAlreadyUsed(users)) {
+                setErrorMessage("<p>The email address has already been taken. " +
+                        "Please <a href=\"../signup/signup.jsp\">try again</a>.</p>");
+                return ERROR;
+            }
             // Check to see if the user already exists in the database
             if (signUpDao.isUserAlreadyInDb(users)) {
                 setErrorMessage("<p>The username has already been taken. " +
