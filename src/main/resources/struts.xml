@@ -52,5 +52,10 @@
             <result name="success">WEB-INF/admin-login-success.jsp</result>
             <result name="error">WEB-INF/admin-login-success.jsp</result>
         </action>
+        <action name="forgotLogin" class="com.pletcherwebdesign.actions.ForgotLogin" method="execute">
+            <result name="input">forgotLogin.action</result>
+            <result name="success">forgotlogin-success.jsp</result>
+            <result name="error">forgotlogin-error.jsp</result>
+        </action>
     </package>
 </struts>

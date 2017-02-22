@@ -22,17 +22,15 @@ public class SignUpDao {
 
     private String checkIfUserExists = "select count(*) " +
             "from users " +
-            "where first_name = ? " +
-            "and last_name = ? " +
-            "and username = ? " +
-            "and password = ?;";
+            "where username = ? " +
+            "and email = ?;";
 
     private String insertIntoUsers = "insert into users (first_name, last_name, email, username, password" +
             ", check_password, street_address, city, st, zip, phone) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     public Boolean isUserAlreadyInDb(Users user) {
         Integer userInt = jdbcTemplate.queryForObject(checkIfUserExists, Integer.class
-                , user.getFirstName(), user.getLastName(), user.getUsername(), user.getPassword());
+                , user.getUsername(), user.getEmail());
         return userInt == 1;
     }
 

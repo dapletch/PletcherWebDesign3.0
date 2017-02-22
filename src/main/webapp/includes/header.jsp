@@ -17,6 +17,8 @@
                         <li class="divider"></li>
                         <li><a href="../signup/signup.jsp">Sign Up</a></li>
                         <li class="divider"></li>
+                        <li><a href="../forgotlogin/forgotlogin.jsp">Forgot Login</a></li>
+                        <li class="divider"></li>
                         <li><a href="../review/review.jsp">Submit a Review</a></li>
                     </ul>
                 </li>
