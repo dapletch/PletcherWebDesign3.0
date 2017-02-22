@@ -16,6 +16,7 @@
         <div class="list-group collapse" id="item-1">
             <a href="../index.jsp" class="list-group-item">Home Page</a>
             <a href="../signup/signup.jsp" class="list-group-item">Sign Up</a>
+            <a href="../forgotlogin/forgotlogin.jsp" class="list-group-item">Forgot Login</a>
             <a href="../review/review.jsp" class="list-group-item">Submit a Review</a>
         </div>
         <a href="#item-2" class="list-group-item" data-toggle="collapse"><i
