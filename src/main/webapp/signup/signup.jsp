@@ -9,7 +9,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Sign Up</title>
+    <title>Sign Up for an Account</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+          content="Sign up for an account through Pletcher Web Design to keep track of your websites progress.
+          Having an account has many benefits including the ability to submit tickets.
+          As soon as a ticket is submitted we are immediately notified and ready to take action.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Ticket, Ticket Submission, Submit Ticket">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <h1>Benefits of Having an Account</h1>

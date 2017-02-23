@@ -8,7 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Portfolio: Vermont Tech Jobs</title>
+    <title>Portfolio - Vermont Tech Jobs</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="While taking the Technical Project Management class at Castleton University
+    I was assigned to create a proof of concept for the Vermont Tech Jobs website.
+    It was during this time that I learned what it was like to work on development team.
+    By dividing the tasks to compliment our skill sets I was able to determine I really had a nack for web design.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Vermont Tech Jobs, Castleton University, Portfolio">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

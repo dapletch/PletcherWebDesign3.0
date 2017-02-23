@@ -8,7 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Portfolio: Skin & Tonic</title>
+    <title>Portfolio - Skin and Tonic</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="In order to graduate from Castleton University I had to complete an internship.
+    I then contacted the Internship director at the time and was assigned to the start up skin care company
+    Skin & Tonic. This was the first time I delved into the world of Content Management Systems.
+    I decided to use Wordpress as the CMS to develop a beautiful e-commerce website that helped
+    generate more revenue, and increased sales overall.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Skin and Tonic, Skin & Tonic, Internship, WordPress
+          , Castleton University, Portfolio">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <h1>Skin &amp; Tonic</h1>

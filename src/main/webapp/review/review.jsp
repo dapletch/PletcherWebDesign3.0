@@ -9,6 +9,14 @@
 <html>
 <head>
     <title>Pletcher Web Design - Review</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+          content="Please leave a review to tell us how we did. We would love to hear your feedback,
+          for life is a continuous process of life learning, and we want to learn how to better suit your needs.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Review, Submit Review, Review Submission">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <h1>Leave a Review</h1>

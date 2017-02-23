@@ -1,19 +1,27 @@
 <html>
 <head>
     <title>Pletcher Web Design</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pletcher Web
+    Design specializes in visual branding, web development, and graphic design. We are also open to the idea of
+    performing contract work.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Programming, Systems Analysis & Design">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 <h1>Welcome to Pletcher Web Design</h1>
-<p>Pletcher Web Design is owned and operated by the Vermont based Designer, Seth Pletcher. Pletcher Web
+<p>Pletcher Web Design is owned and operated by the Brattleboro Vermont based Designer, Seth Pletcher. Pletcher Web
     Design specializes in visual branding, web development, and graphic design. We are also open to the idea of
-    performing contracting work, whether it be in the form of creating a custom template for you future business, or any
+    performing contract work, whether it be in the form of creating a custom template for your business, or any
     work that involves programming, especially in regards to Java, or PHP related technologies. As with any design
     process there is a great
-    deal of system analysis that needs to be done, for when you think about it, almost everything can be thought about
+    deal of system analysis that needs to be done, for when you think about it, almost everything can be thought
     as a
     system. Pletcher Web Design specializes in providing a great architecture and functionality while
-    helping you, the client, to achieve your goals.</p>
+    helping you to achieve your goals.</p>
 <p>I will work with you to design a website that advances the goals of your business and or organization,
     while helping you leverage your knowledge of your business, your customers, and your marketing
     strategies. I am truly passionate about providing technological and marketing support that exposes
@@ -35,7 +43,7 @@
         users
     </li>
     <li>Creating and or modifying templates for your organization's online presence</li>
-    <li>Web Analytics to provide you, the client, with better business intelligence to gain a deeper understanding of
+    <li>Web Analytics to provide you with better business intelligence to gain a deeper understanding of
         when and how customers are using your website
     </li>
     <li>Assist in the creation of business related applications whether they are web based, or not</li>

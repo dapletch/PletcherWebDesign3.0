@@ -8,7 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Portfolio - Java Log Parse</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="I had never had to parse a log file before and after performing some more analysis of the log file I realized that
+    this would be no easy task. I was accustomed to parsing files with only one or two more delimiters at a time, but
+    never had to deal with such complex files such as log files.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Java Programming, Java, Console Application, Castleton University, Portfolio">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <h1>Java Log Parsing Analytics Application</h1>

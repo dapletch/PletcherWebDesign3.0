@@ -8,7 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Portfolio: Sigma Delta Chi Website</title>
+    <title>Portfolio - Sigma Delta Chi</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="During my tenure at Castleton University I created a website for the perennial fraternity, Sigma Delta Chi.
+    I was not assigned to create the website, by any means, for I created it on my own accord.
+    I realized we needed a better online presence, and that was when I decided to take action.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Sigma Delta Chi, Castleton University, Portfolio">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

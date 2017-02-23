@@ -6,7 +6,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Pletcher Web Design</a>
+            <!--<a class="navbar-brand" href="#">Pletcher Web Design</a>-->
+            <a href="../index.jsp"><img class="img-responsive" src="../images/PletcherWebDesignRevised.png" width="157" height="86"/></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -25,6 +26,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li><a href="../portfolio/portfolio.jsp">My Portfolio</a></li>
+                        <li class="divider"></li>
                         <li><a href="../portfolio/sigma-website.jsp">Sigma Delta Chi Website</a></li>
                         <li class="divider"></li>
                         <li><a href="../portfolio/vermont-tech-jobs.jsp">Vermont Tech Jobs</a></li>

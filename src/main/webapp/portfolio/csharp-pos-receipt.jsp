@@ -8,7 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Portfolio: C# Point of Sale Receipt</title>
+    <title>Portfolio - C# Point of Sale Receipt</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="In order to graduate from Castleton University
+    I had to take a minimum of 2 programming courses. I decided to take C# Programming I & II. The point of sale receipt application was solely a
+    console application that we had to design during our the first portion of the C# Programming I course.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, C# Programming, C#, C Sharp, Console Application, Castleton University, Portfolio">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

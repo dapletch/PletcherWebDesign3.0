@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /signup/signup-success.jsp
+Disallow: /signup/signup-error.jsp
+Disallow: /forgotlogin/forgotlogin-success.jsp
+Disallow: /forgotlogin/forgotlogin-error.jsp
+Disallow: /review/review-success.jsp
+Disallow: /review/review-error.jsp
+Disallow: /contact/contact-success.jsp
+Disallow: /contact/contact-error.jsp
+Sitemap: http://www.pletcherwebdesign.com/sitemap.html
