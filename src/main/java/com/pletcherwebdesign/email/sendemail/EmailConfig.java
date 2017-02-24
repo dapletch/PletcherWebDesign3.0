@@ -1,6 +1,9 @@
 package com.pletcherwebdesign.email.sendemail;
 
 import com.pletcherwebdesign.email.beans.SmtpProperties;
+import com.pletcherwebdesign.email.dao.EmailFormDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +22,8 @@ public class EmailConfig {
 
     private SmtpProperties smtpProperties;
 
+    private Logger logger = LoggerFactory.getLogger(EmailConfig.class);
+
     @Autowired
     public EmailConfig(SmtpProperties smtpProperties) {
         this.smtpProperties = smtpProperties;
@@ -27,6 +32,7 @@ public class EmailConfig {
     @Bean
     public JavaMailSender javaMailService() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+        logger.info("SmtpProperties: " + smtpProperties.toString());
 
         javaMailSender.setHost(smtpProperties.getHost());
         javaMailSender.setPort(Integer.parseInt(smtpProperties.getPort()));

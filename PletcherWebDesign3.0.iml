@@ -38,6 +38,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="api" level="application" />
     <orderEntry type="library" name="Maven: org.apache.struts:struts2-junit-plugin:2.3.20.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.8.2" level="project" />
@@ -76,6 +77,5 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.25" level="project" />
-    <orderEntry type="library" name="api" level="application" />
   </component>
 </module>

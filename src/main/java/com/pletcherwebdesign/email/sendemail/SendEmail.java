@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * Created by Seth on 2/7/2017.
@@ -32,14 +33,45 @@ public class SendEmail {
     public SendEmail(JavaMailSender mailSender, SmtpProperties smtpProperties) {
         this.mailSender = mailSender;
         this.smtpProperties = smtpProperties;
+        logger.info("SmtpProperties for Send Email: " + smtpProperties.toString());
     }
 
     public void sendEmailNoAttachment(MessageBody messageBody) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(messageBody.getRecipient());
-        message.setSubject(messageBody.getSubject());
-        message.setText(messageBody.getMessage());
-        mailSender.send(message);
+        Properties props = new Properties();
+        props.put("mail.smtp.starttls.enable", smtpProperties.getStartTlsEnable());
+        props.put("mail.smtp.host", smtpProperties.getHost());
+        props.put("mail.smtp.user", smtpProperties.getUsername());
+        props.put("mail.smtp.password", smtpProperties.getPassword());
+        props.put("mail.smtp.port", smtpProperties.getPort());
+        props.put("mail.smtp.auth", smtpProperties.getAuthentication());
+        props.put("mail.smtp.debug", smtpProperties.getMailDebug());
+
+        logger.info("Properties: " + props.toString());
+        logger.info("SmtpProperties: " + smtpProperties.toString());
+
+        Session session = Session.getInstance(props);
+
+        try {
+            // Create a default MimeMessage object
+            Message message = new MimeMessage(session);
+            // Set From: header field of the header
+            message.setFrom(new InternetAddress(smtpProperties.getUsername()));
+            // Set To: header field of the header
+            message.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress(messageBody.getRecipient()));
+            // Set Subject: header field
+            message.setSubject(messageBody.getSubject());
+            // Now set the actual message
+            message.setText(messageBody.getMessage());
+            // Send message
+            Transport transport = session.getTransport("smtp");
+            transport.connect(smtpProperties.getHost(), smtpProperties.getUsername(), smtpProperties.getPassword());
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            logger.info("The message has been sent successfully");
+        } catch (MessagingException e) {
+            logger.error("There was an error sending the email to admin: \n" + e);
+        }
     }
 
     public void sendEmailWithAttachment(MessageBody messageBody) {
