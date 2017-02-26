@@ -9,6 +9,14 @@
 <html>
 <head>
     <title>Pletcher Web Design - Craft</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="When I design media for the web,
+    I thoroughly research the subject that I am designing for.
+    I utilize a plethora of free open source technologies to design and create affordable software solutions that are aesthetically pleasing to the eye.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding
+          , Web Developer, Web Development, Programming, Craft, The Craft, Web Design Process, Web Development Process">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -16,14 +24,13 @@
     <div class="row">
         <div class="col-xs-12">
             <h1>The Craft</h1>
-        </div>
-        <div class="col-xs-8">
+
             <p>The web has evolved so quickly since it was first developed back in the late 80's that developers often
                 times concentrate on technical efficiency rather than aesthetic value. This means that most websites can
                 perform complex tasks, but fail to catch the eye of the user.</p>
             <img src="images/HTML_5.png" class="img-responsive img-padding-right" align="left" alt="HTML5">
-            <p>When I design media for the web, I first thoroughly research the subject that I am designing for. I
-                utilize a plethora the free open source image editing technologies that make images look aesthetically
+            <p>When I design media for the web, I thoroughly research the subject that I am designing for. I
+                utilize a plethora the free open source image editing tools that make images look aesthetically
                 pleasing to the eye. Websites need to have an excellent graphical user interface (GUI) that provides a
                 rich texture, depth, custom buttons, borders, and backgrounds. I custom code the websites features that
                 go on every page, by using a HTML5, JavaScript, CSS 2 &amp; 3, PHP, and Java where applicable.</p>
@@ -36,17 +43,17 @@
                 Java Servlet Pages (JSP's).</p>
             <img src="images/brackets_logo.png" class="img-responsive img-padding-right" height="150" width="150"
                  align="left" alt="Brackets Logo">
-            <p>The tools I use are Brackets, IntelliJ Ultimate Edition, to custom code the look, and feel, of the
-                websites I develop. Before any coding begins I create a series of wire-frames that are simple and easy
+            <p>The development tools I primarily use are Brackets, IntelliJ Ultimate Edition, to custom code the desired look, and feel.
+                Before any coding begins I create a series of wire-frames that are simple and easy
                 to understand. That way the web pages that I are neat and uniform and fulfill the purpose for the which
                 they were created. Providing quality content and features is quintessential to the development of any
-                website. <img src="images/intellij_logo.png" class="img-responsive img-padding-left" height="200" width="200"
+                website. <img src="images/intellij_logo.png" class="img-responsive img-padding-left" height="200"
+                              width="200"
                               align="right" alt="IntelliJ IDEA">The code that is generated
                 is always clean, efficient, and up-to-date on the most current standards. When it comes to maintenance I
                 make sure that all changes that I perform to any website work in a development environment before being
                 moved to production, that way what is live in production is mirrored in development.</p>
-        </div>
-        <div class="col-xs-4">
+
             <h2>Best Practices</h2>
             <p>I primarily use GIMP, as my image editing sofware of choice. The software solutions I choose are usually
                 free open source software solutions. I do what I can, when I can to reduce costs, which ultimately

@@ -9,6 +9,14 @@
 <html>
 <head>
     <title>Pletcher Web Design - Process</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="At Pletcher Web Design we will design a fully functional website that will get your business noticed.
+    We strive to develop fully functioning websites for our customers,
+    which allows them to implement better marketing and business processes.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding,
+    Web Developer, Web Development, Process, Web Design Process, Process of Web Design, Web Design Brattleboro VT">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="container-fluid">
@@ -22,97 +30,54 @@
                  width="230"
                  align="left">
             <p>When you think about it almost anything can be thought about as a system. The term system is broad and
-                general term,
-                so how do we define it then? The true definition of a system is a set of interdependent components
-                forming
-                an
-                integrated whole. It's a term that can be used in different industries, including, but not limited to
-                web
-                design. We
-                take this methodology to heart, for it is these steps that we follow to design and implement beautifully
-                crafted
-                websites. The first stage of getting any website up and running is Planning.</p>
+                general term, so how do we define it then? The true definition of a system is a set of interdependent components
+                forming an integrated whole. It's a term that can be used in different industries, including, but not limited to
+                web design. We take this methodology to heart, for it is these steps that we follow to design and implement beautifully
+                crafted websites. The first stage of getting any website up and running is Planning.</p>
             <h2 id="Planning">Planning</h2>
             <p>The Planning phase is the most crucial step in creating a successful system, during this phase you decide
-                exactly
-                what you want to do and the problems you're trying to solve, by:</p>
+                exactly what you want to do and the problems you're trying to solve, by:</p>
             <ul>
-                <li>Defining the problems, the objectives and the resources available i.e. content, images, video,
-                    etc.
-                </li>
-                <li>Studying the ability of proposing alternative solutions after initial meeting.</li>
+                <li>Defining the problems, the objectives and the resources available i.e. content, images, video, etc.</li>
+                <li>Studying the ability of proposing alternative solutions after the initial meeting.</li>
                 <li>Studying how to market your products better than your competitors. After analyzing these scenarios
-                    you
-                    will have
-                    two choices: develop a new system, or improve the current one.
-                </li>
+                    you will have two choices: develop a new system, or improve the current one.</li>
             </ul>
             <h2 id="Analysis">Analysis</h2>
             <p>The client's requirements should be determined and documented, what their expectations are for the
-                system,
-                and how it
-                will perform. A feasibility study will be made for the project as well, involving determining whether
-                it's
-                organizationally, economically, socially, technologically feasible. It's very important to us to
-                maintain
-                strong
-                communication level with you, the client, to make sure you have a clear vision of the finished product
-                and
-                its
-                function.</p>
+                system, and how it will perform. A feasibility study will be made for the project as well, to determine whether
+                it's organizationally, economically, socially, and technologically feasible. It's very important to us to
+                maintain solid line of communication with you to make sure you have a clear vision of the finished product
+                and its function.</p>
             <h2 id="Design">Design</h2>
             <img src="images/home_page.png" class="img-responsive img-padding-right" width="218" height="223"
                  name="image_name" align="left" alt="Wire Frame"
                  onmouseover="image_name.width='419';image_name.height='429';"
                  onmouseout="image_name.width='218';image_name.height='223';"/>
             <p>The design phase comes after a solid understanding of customer's requirements, this phase defines the
-                elements of a
-                system, the components, the security level, modules, architeture and the different interfaces and type
-                of
-                data that
-                goes through the system. A general system is implemented by the use of wire-framing solutions, and
-                through
-                detailed
-                documentation. The wire-frames that are provided to clients are easy to follow and understand. It is
-                with
-                these
-                tools that the system will be designed and implemented, so that it will meet all functional and
-                technical
-                requirements, logically and physically.</p>
+                elements of a system including, but not limited to, components, security levels, modules, architecture, interfaces and type
+                of data that goes through the system. A general system is implemented by the use of wire-framing solutions, and
+                through detailed documentation. The wire-frames that are provided to clients are easy to follow and understand. It is
+                with these tools that the system will be designed and implemented, so that it will meet all functional and
+                technical requirements, logically and physically.</p>
             <h2 id="Implementation">Implementation &amp; Deployment</h2>
             <p>This phase comes after a complete understanding of system requirements and specifications, it's the
-                actual
-                construction process after having a complete understanding and illustrated design for the requested
-                system.
-                In the
-                Software Development Life Cycle, the actual code is written here. In this phase, the system is ready to
-                be
-                deployed
-                and installed on the server along with being attached to the desired domain name.</p>
+                actual construction process after having a complete understanding and illustrated design for the requested
+                system. In the Software Development Life Cycle, the actual code is written here. In this phase, the system is ready to
+                be deployed and installed on the server along with being attached to the desired domain name.</p>
             <p><img src="images/cpanel_logo.png" class="img-responsive img-padding-right" alt="cpanel" height="84"
                     width="177" align="left">
                 Training may be required for end users to make sure they know
                 how to the system and to get familiar with it, the implementation phase may take a some time, but that
-                depends on
-                the complexity of the system and the solution it presents. It is by taking these basic design
-                principles,
-                that
-                rigorous testing must be performed, through the process of agile development. When a feature is
-                completed it
-                is
-                testing to the fullest extent of its ability, so that will be able to function properly when it is
-                launched
-                into
-                development.</p>
+                depends on the complexity of the system and the solution it presents. It is by taking these basic design
+                principles, that rigorous testing must be performed, through the process of agile development. When a feature is
+                completed it is testing to the fullest extent of its ability, so that will be able to function properly when it is
+                launched into development.</p>
             <h2 id="Maintenance">Maintenance</h2>
-            <p>In this phase, periodic maintenance for the sytem will be carried out to make sure that the system won't
-                become
-                obsolete, this includes replacing old features with updated ones, rewriting content, or changing of a
-                market
-                strategy. By building the system in short iterations; we can guarantee meeting the customer's
-                requirements
-                before we
-                build the whole system.</p>
+            <p>In this phase, periodic maintenance for the system will be carried out to make sure that the system won't
+                become obsolete, this includes replacing old features with updated ones, rewriting content, or changing of a
+                market strategy. By building the system in short iterations; we can guarantee meeting the customer's requirements
+                before we build the whole system.</p>
         </div>
         <div class="col-xs-4">
             <h2>Stages of Development</h2>

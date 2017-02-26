@@ -22,10 +22,6 @@
     as a
     system. Pletcher Web Design specializes in providing a great architecture and functionality while
     helping you to achieve your goals.</p>
-<p>I will work with you to design a website that advances the goals of your business and or organization,
-    while helping you leverage your knowledge of your business, your customers, and your marketing
-    strategies. I am truly passionate about providing technological and marketing support that exposes
-    regional businesses to a domestic and international customer base.</p>
 <div class="parallax">
     <div class="container-parallax">
         <div class="text-center">
@@ -39,13 +35,9 @@
     <li>Web design and coding i.e. creating wire-frames that are easy to follow and understand</li>
     <li>Content management systems: Joomla! And WordPress</li>
     <li>Hosting and domain name registration</li>
-    <li>Website maintenance and training in the form of detailed documentation, as a reference, for new
-        users
-    </li>
+    <li>Website maintenance and training in the form of detailed documentation, as a reference, for new users</li>
     <li>Creating and or modifying templates for your organization's online presence</li>
-    <li>Web Analytics to provide you with better business intelligence to gain a deeper understanding of
-        when and how customers are using your website
-    </li>
+    <li>Web Analytics to provide you with better business intelligence to gain a deeper understanding of when and how customers are using your website</li>
     <li>Assist in the creation of business related applications whether they are web based, or not</li>
 </ul>
 <!-- Start of Carousel -->
@@ -55,20 +47,35 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="images/slide-show/skin_and_tonic_1_lg.png" alt="Skin & Tonic">
+            <img src="images/slide-show/skin_and_tonic_1_lg.png" alt="Skin & Tonic 1" height="675" width="1385">
         </div>
 
         <div class="item">
-            <img src="images/slide-show/sigma_delta_chi_1_lg.png" alt="Sigma Delta Chi 1">
+            <img src="images/slide-show/pos_receipt_1.png" alt="C# POS Receipt 1" height="675" width="1385">
         </div>
 
         <div class="item">
-            <img src="images/slide-show/sigma_delta_chi_2_lg.png" alt="Sigma Delta Chi 2">
+            <img src="images/slide-show/pos_receipt_2.png" alt="C# POS Receipt 2" height="675" width="1385">
+        </div>
+
+        <div class="item">
+            <img src="images/slide-show/vermont_tech_jobs_1.png" alt="Vermont Tech Jobs 1" height="675" width="1385">
+        </div>
+
+        <div class="item">
+            <img src="images/slide-show/sigma_delta_chi_1_lg.png" alt="Sigma Delta Chi 1" height="675" width="1385">
+        </div>
+
+        <div class="item">
+            <img src="images/slide-show/sigma_delta_chi_2_lg.png" alt="Sigma Delta Chi 2" height="675" width="1385">
         </div>
     </div>
 
@@ -85,6 +92,11 @@
 <!-- End of Carousel -->
 <br>
 <h3>Why Pletcher Web Design?</h3>
+<p>I will work with you to design a website that advances the goals of your business and or organization,
+    while helping you leverage your knowledge of your business, your customers, and your marketing
+    strategies. I am truly passionate about providing technological and marketing support that exposes
+    regional businesses to a domestic and international customer base.</p>
+
 <p>The world wide web is a revolutionary tool with great potential that some people have not been able to
     keep in touch with. Web technologies are constantly changing which requires an intricate system analysis
     and design process to ensure a website's success in a highly competitive environment. Pletcher Web

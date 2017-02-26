@@ -41,7 +41,7 @@
         <a href="../contact/contact.jsp" class="list-group-item">Contact Us</a>
     </div>
     <h2>Past Projects</h2>
-    <p>Still not convinced Pletcher Web Design is right for you.
+    <p>Still not convinced Pletcher Web Design is right for you?
         Check out some of my other projects to see if my skill set fits your needs:</p>
     <div class="list-group">
         <a href="https://github.com/dapletch" class="list-group-item">Projects Hosted on GitHub</a>

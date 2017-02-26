@@ -8,7 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pletcher Web Design - Credentials</title>
+    <title>Credentials</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="I first devled into the world of web design while taking a dual enrollment class through the Community Collge of Vermont (CCV).
+    I partook in the course, while I was a senior in at Brattleboro Union High School.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding,
+    Web Developer, Web Development, Community College of Vermont, CCV, Brattleboro Union High School, BUHS, Programming, Credentials">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -18,9 +25,11 @@
             <h1>Credentials</h1>
         </div>
         <div class="col-xs-8">
-            <p>I first delved into the world of web design by taking a Web Development, as a dual enrollment class,
-                during my senior year at Brattleboro Union High School. Needless to say, I fell in love. As the semester
-                progressed, so did my skills in web design. I later took those skills and applied through out my college
+            <p>I first delved into the world of web design while I was enrolled in a Web Development class through
+                the Community College of Vermont (CCV).
+                I partook in the course, as a dual enrollment class, during my senior year at Brattleboro Union High School.
+                Needless to say, I fell in love. As the semester progressed, so did my skills in web design.
+                I later took those skills and applied through out my college
                 career, while attending Castleton University in the Computer Information Systems (CIS) program.</p>
             <img src="images/sigma_delta_chi_2.png" class="img-responsive img-padding-right" alt="Sigma PayPal" width="289" height="162"
                  align="left">
@@ -30,7 +39,7 @@
                 JavaScript, PHP, and MySQL, for more dynamic features. The MySQL database that I created has helped
                 countless alumni reconnect with one another. I also worked along side with the acting treasurer at the
                 time to set up a PayPal account. Once the PayPal account was all set up and launched on the website,
-                thousands of dollars of donations starting coming through, but I didn't stop there.</p>
+                thousands of dollars of donations started coming through, but I didn't stop there.</p>
             <img src="images/sigma_delta_chi_3.png" class="img-responsive img-padding-right" alt="Sigma WordPress" width="289" height="162" align="left">
             <p>I then added WordPress as a sub directory, so the fraternity would have it's own blog. After WordPress
                 was successfully installed the fraternity was able to launch a massive online marketing campaign for

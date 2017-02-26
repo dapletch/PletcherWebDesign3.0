@@ -9,6 +9,14 @@
 <html>
 <head>
     <title>Pletcher Web Design - Informational Session</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Interested in getting a website created for your business?
+    Then look no further, for Pletcher Web Design is for you!
+    All you need to do is fill out the form below and you can sign up for a free consultation today.">
+    <meta name="keywords" content="Brattleboro, Vermmont, Brattleboro VT, VT, Web Design, Visual Branding,
+    Web Developer, Web Development, Free Consultation, Informational Session, Info Session, Info. Session">
+    <meta name="author" content="Seth Pletcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -17,6 +25,12 @@
         <div class="col-xs-12">
             <h1>Informational Session</h1>
             <p>Sign up for an free Informational Session today.</p>
+
+            <h3>How Does a Session Work?</h3>
+            <p>The answer to that question is really quite simple. Just fill out the form, along with a brief
+                description of what the desired project is, the best time to reach you, and you will receive a phone
+                call, and or, email in the next five business days.</p>
+            <p>Also feel free to email us at <a href="mailto:pletcherwebdesign@gmail.com">pletcherwebdesign@gmail.com</a></p>
             <p>All fields must be filled out in order, for the form to submit.</p>
         </div>
         <div class="col-xs-8">
@@ -84,14 +98,6 @@
                     <button type="submit" value="Submit" class="btn-submit btn-default-submit">Submit</button>
                 </div>
             </form>
-        </div>
-        <div class="col-xs-4">
-            <h2>How Does a Session Work?</h2>
-            <p>The answer to that question is really quite simple. Just fill out the form, along with a brief
-                description of what the desired project is, the best time to reach you, and you will receive a phone
-                call, and or, email in the next five business days.</p>
-            <p>Also feel free to email us at:<br/>
-                <a href="mailto:pletcherwebdesign@gmail.com">pletcherwebdesign@gmail.com</a></p>
         </div>
     </div>
 </div>

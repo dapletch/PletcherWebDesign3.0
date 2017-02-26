@@ -22,7 +22,7 @@
         <div class="col-xs-4">
             <form method="post" action="forgotLogin.action">
                 <div class="form-group">
-                    <label for="email">Name:</label>
+                    <label for="email">Email:</label>
                     <input type="text" class="form-control" placeholder="Email" name="email"
                            id="email">
                 </div>
