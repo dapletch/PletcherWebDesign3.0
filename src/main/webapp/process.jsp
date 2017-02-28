@@ -68,7 +68,7 @@
             <p><img src="images/cpanel_logo.png" class="img-responsive img-padding-right" alt="cpanel" height="84"
                     width="177" align="left">
                 Training may be required for end users to make sure they know
-                how to the system and to get familiar with it, the implementation phase may take a some time, but that
+                how to use the system and get familiar with it. The implementation phase may take a some time, but that
                 depends on the complexity of the system and the solution it presents. It is by taking these basic design
                 principles, that rigorous testing must be performed, through the process of agile development. When a feature is
                 completed it is testing to the fullest extent of its ability, so that will be able to function properly when it is

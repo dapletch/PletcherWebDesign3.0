@@ -36,9 +36,9 @@
                 go on every page, by using a HTML5, JavaScript, CSS 2 &amp; 3, PHP, and Java where applicable.</p>
             <img src="images/wordpress_logo.png" class="img-responsive img-padding-left" height="150" width="150"
                  align="right" alt="WordPress Logo">
-            <p>I primarily use WordPress, for most of my clientele, but I not opposed to looking into new solutions that
+            <p>I primarily use WordPress, for most of my clientele, but I am not opposed to looking into new solutions that
                 would be able to better suit the needs of the client. I am also able to able to custom code templates,
-                by using HTML in conjunction with CSS to be able to render any site with the desired look and feel.
+                by using HTML in conjunction with CSS to render any site with the desired look and feel.
                 Believe or not the site you are currently looking at was custom coded using the HTML, CSS, Java, and
                 Java Servlet Pages (JSP's).</p>
             <img src="images/brackets_logo.png" class="img-responsive img-padding-right" height="150" width="150"
