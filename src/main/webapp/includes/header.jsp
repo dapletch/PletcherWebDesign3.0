@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<a class="navbar-brand" href="#">Pletcher Web Design</a>-->
-            <a href="../index.jsp"><img class="img-responsive" src="../images/PletcherWebDesignRevised.png" width="157" height="86"/></a>
+            <a href="../index.jsp"><img class="img-responsive" src="../images/PletcherWebDesignLogo.png" width="190" height="105"/></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
