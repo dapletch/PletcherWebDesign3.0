@@ -47,5 +47,6 @@
         <a href="https://github.com/dapletch" class="list-group-item">Projects Hosted on GitHub</a>
         <a href="https://portfolium.com/seth-pletcher" class="list-group-item">Portfolium</a>
         <a href="https://www.linkedin.com/in/seth-pletcher-47b2868a" class="list-group-item">LinkedIn</a>
+        <a href="http://www.pletcherwebdesign.com/roller/" class="list-group-item">Read Write &amp; Execute Blog</a>
     </div>
 </div>
